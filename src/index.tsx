@@ -9,11 +9,11 @@ const root = ReactDOM.createRoot(
 
 const promo: Promo = {
 
-  Title:'The Grand Budapest Hotel',
-  BgImgPath:'img/bg-the-grand-budapest-hotel.jpg',
-  PosterImgPath:'img/the-grand-budapest-hotel-poster.jpg',
-  Genre:'Drama',
-  Year:2014,
+  title:'The Grand Budapest Hotel',
+  backgroundImagePath:'img/bg-the-grand-budapest-hotel.jpg',
+  posterImagePath:'img/the-grand-budapest-hotel-poster.jpg',
+  genre:'Drama',
+  year:2014,
 };
 
 root.render(
