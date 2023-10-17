@@ -1,6 +1,6 @@
 import FilmCard from '../../../common/film-card/film-card';
 
-function MoviePage() {
+function FilmInList() {
   return (
     <>
       <section className="film-card film-card--full">
@@ -48,8 +48,8 @@ function MoviePage() {
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                  <svg viewBox="0 0 18 14" width="18" height="14">
+                    <use xlinkHref="#in-list"></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>
@@ -70,13 +70,13 @@ function MoviePage() {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="movie/movie-page#" className="film-nav__link">Overview</a>
+                    <a href="movie/movie-page-in-list#" className="film-nav__link">Overview</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="movie/movie-page#" className="film-nav__link">Details</a>
+                    <a href="movie/movie-page-in-list#" className="film-nav__link">Details</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="movie/movie-page#" className="film-nav__link">Reviews</a>
+                    <a href="movie/movie-page-in-list#" className="film-nav__link">Reviews</a>
                   </li>
                 </ul>
               </nav>
@@ -158,4 +158,4 @@ function MoviePage() {
   );
 }
 
-export default MoviePage;
+export default FilmInList;
