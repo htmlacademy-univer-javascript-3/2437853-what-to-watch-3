@@ -11,7 +11,7 @@ function Main(props: MainProps) {
     <React.Fragment>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={props.promo.BgImgPath} alt={props.promo.Title}/>
+          <img src={props.promo.backgroundImagePath} alt={props.promo.title}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -40,14 +40,14 @@ function Main(props: MainProps) {
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={props.promo.PosterImgPath} alt={`${props.promo.Title} poster`} width="218" height="327"/>
+              <img src={props.promo.posterImagePath} alt={`${props.promo.title} poster`} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
               <h2 className="film-card__title">The Grand Budapest Hotel</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{props.promo.Genre}</span>
-                <span className="film-card__year">{props.promo.Year}</span>
+                <span className="film-card__genre">{props.promo.genre}</span>
+                <span className="film-card__year">{props.promo.year}</span>
               </p>
 
               <div className="film-card__buttons">

@@ -1,6 +1,6 @@
 import FilmCard from '../../../common/film-card/film-card';
 
-function MoviePageReviews() {
+function FilmReviews() {
   return (
     <>
       <section className="film-card film-card--full">
@@ -227,4 +227,4 @@ function MoviePageReviews() {
   );
 }
 
-export default MoviePageReviews;
+export default FilmReviews;

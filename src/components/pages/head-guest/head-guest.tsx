@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 function HeadGuest() {
   return (
     <section className="film-card">
@@ -18,7 +20,7 @@ function HeadGuest() {
         </div>
 
         <div className="user-block">
-          <a href="sign-in.html" className="user-block__link">Sign in</a>
+          <Link to="/login" className="user-block__link">Sign in</Link>
         </div>
       </header>
 

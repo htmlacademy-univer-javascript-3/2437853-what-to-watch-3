@@ -1,9 +1,9 @@
 type Promo = {
-  Title: string;
-  BgImgPath: string;
-  PosterImgPath: string;
-  Genre: string;
-  Year: number;
+  title: string;
+  backgroundImagePath: string;
+  posterImagePath: string;
+  genre: string;
+  year: number;
 }
 
 export default Promo;
