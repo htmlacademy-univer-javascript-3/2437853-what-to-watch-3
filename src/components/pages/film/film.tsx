@@ -1,14 +1,22 @@
-import FilmCard from '../../common/film-card/film-card';
 import {Link} from 'react-router-dom';
+import FilmList from '../../common/film-list/film-list';
+import type {Film} from '../../../mocks/films';
+import films from '../../../mocks/films';
+import {useFilms} from '../../../hooks/use-films';
 
-function Film() {
-  const id = 0;
+type FilmProps = {
+  films: Film[];
+}
+
+function Film(props: FilmProps) {
+  const film = useFilms(films);
+
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src={film.imageBackgroundPath} alt={film.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -36,10 +44,10 @@ function Film() {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{film.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.year}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -56,7 +64,7 @@ function Film() {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to={`/films/${id}/review`} className="btn film-card__button">Add review</Link>
+                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -65,7 +73,7 @@ function Film() {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+              <img src={film.imagePosterPath} alt={`${film.title} poster`} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
@@ -84,29 +92,20 @@ function Film() {
               </nav>
 
               <div className="film-rating">
-                <div className="film-rating__score">8,9</div>
+                <div className="film-rating__score">{film.rating.score}</div>
                 <p className="film-rating__meta">
-                  <span className="film-rating__level">Very good</span>
-                  <span className="film-rating__count">240 ratings</span>
+                  <span className="film-rating__level">{film.rating.level}</span>
+                  <span className="film-rating__count">{film.rating.reviewsCount} ratings</span>
                 </p>
               </div>
 
               <div className="film-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge
-                  Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.
-                </p>
+                {film.info.description.split('\n').map((paragraph) => <p key='text'>{paragraph}</p>)}
 
-                <p>Gustave prides himself on providing first-class service to the hotel&#39s guests, including satisfying
-                  the sexual needs of the many elderly women who stay there. When one of Gustave&#39s lovers dies
-                  mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her
-                  murder.
-                </p>
-
-                <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
+                <p className="film-card__director"><strong>Director: {film.info.director}</strong></p>
 
                 <p className="film-card__starring">
-                  <strong>Starring: Bill Murray, Edward Norton, Jude Law, Willem Dafoe
-                  and other
+                  <strong>Starring: {film.info.starring}
                   </strong>
                 </p>
               </div>
@@ -119,27 +118,7 @@ function Film() {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <div className="catalog__films-list">
-            <FilmCard
-              title="Fantastic Beasts: The Crimes of Grindelwald"
-              imgPath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-            />
-
-            <FilmCard
-              title="Bohemian Rhapsody"
-              imgPath="img/bohemian-rhapsody.jpg"
-            />
-
-            <FilmCard
-              title="Macbeth"
-              imgPath="img/macbeth.jpg"
-            />
-
-            <FilmCard
-              title="Aviator"
-              imgPath="img/aviator.jpg"
-            />
-          </div>
+          <FilmList films={props.films.slice(0, 4)}/>
         </section>
 
         <footer className="page-footer">
@@ -152,7 +131,7 @@ function Film() {
           </div>
 
           <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
+            <p>© 2023 What to watch Ltd.</p>
           </div>
         </footer>
       </div>

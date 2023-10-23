@@ -8,26 +8,34 @@ import AddReview from '../pages/add-review/add-review';
 import Player from '../pages/player/player';
 import NotFound from '../pages/not-found/not-found';
 import PrivateRoute from '../common/private-route/private-route';
+import films, {Film as FilmType} from '../../mocks/films';
 
 type AppProps = {
   promo: Promo;
+  films: FilmType[];
 }
 
 function App(props: AppProps) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main promo={props.promo}/>}/>
+        <Route path="/" element={
+          <Main
+            films={props.films}
+            promo={props.promo}
+          />
+        }
+        />
         <Route path="/login" element={<SignIn/>}/>
         <Route path="/mylist" element={
           <PrivateRoute>
-            <MyList/>
+            <MyList films={films.filter((f) => f.addedToList)}/>
           </PrivateRoute>
         }
         />
-        <Route path="/films/:id" element={<Film/>}/>
-        <Route path="/films/:id/review" element={<AddReview/>}/>
-        <Route path="/player/:id" element={<Player/>}/>
+        <Route path="/films/:id" element={<Film films={props.films}/>}/>
+        <Route path="/films/:id/review" element={<AddReview films={props.films}/>}/>
+        <Route path="/player/:id" element={<Player films={props.films}/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>

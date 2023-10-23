@@ -1,9 +1,11 @@
 import React from 'react';
-import FilmCard from '../../common/film-card/film-card';
-import Promo from '../../../types/promo';
+import type Promo from '../../../types/promo';
+import FilmList from '../../common/film-list/film-list';
+import type {Film} from '../../../mocks/films';
 
 type MainProps = {
   promo : Promo;
+  films: Film[];
 }
 
 function Main(props: MainProps) {
@@ -107,107 +109,7 @@ function Main(props: MainProps) {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <FilmCard
-              title="Fantastic Beasts: The Crimes of Grindelwald"
-              imgPath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-            />
-
-            <FilmCard
-              title="Bohemian Rhapsody"
-              imgPath="img/bohemian-rhapsody.jpg"
-            />
-
-            <FilmCard
-              title="Macbeth"
-              imgPath="img/macbeth.jpg"
-            />
-
-            <FilmCard
-              title="Aviator"
-              imgPath="img/aviator.jpg"
-            />
-
-            <FilmCard
-              title="We need to talk about Kevin"
-              imgPath="img/we-need-to-talk-about-kevin.jpg"
-            />
-
-            <FilmCard
-              title="What We Do in the Shadows"
-              imgPath="img/what-we-do-in-the-shadows.jpg"
-            />
-
-            <FilmCard
-              title="Revenant"
-              imgPath="img/revenant.jpg"
-            />
-
-            <FilmCard
-              title="Johnny English"
-              imgPath="img/johnny-english.jpg"
-            />
-
-            <FilmCard
-              title="Shutter Island"
-              imgPath="img/shutter-island.jpg"
-            />
-
-            <FilmCard
-              title="Pulp Fiction"
-              imgPath="img/pulp-fiction.jpg"
-            />
-
-            <FilmCard
-              title="No Country for Old Men"
-              imgPath="img/no-country-for-old-men.jpg"
-            />
-
-            <FilmCard
-              title="Snatch"
-              imgPath="img/snatch.jpg"
-            />
-
-            <FilmCard
-              title="Moonrise Kingdom"
-              imgPath="img/moonrise-kingdom.jpg"
-            />
-
-            <FilmCard
-              title="Seven Years in Tibet"
-              imgPath="img/seven-years-in-tibet.jpg"
-            />
-
-            <FilmCard
-              title="Midnight Special"
-              imgPath="img/midnight-special.jpg"
-            />
-
-            <FilmCard
-              title="War of the Worlds"
-              imgPath="img/war-of-the-worlds.jpg"
-            />
-
-            <FilmCard
-              title="Dardjeeling Limited"
-              imgPath="img/dardjeeling-limited.jpg"
-            />
-
-            <FilmCard
-              title="Orlando"
-              imgPath="img/orlando.jpg"
-            />
-
-            <FilmCard
-              title="Mindhunter"
-              imgPath="img/mindhunter.jpg"
-            />
-
-            <FilmCard
-              title="Midnight Special"
-              imgPath="img/midnight-special.jpg"
-            />
-          </div>
+          <FilmList films={props.films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -224,7 +126,7 @@ function Main(props: MainProps) {
           </div>
 
           <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
+            <p>© 2023 What to watch Ltd.</p>
           </div>
         </footer>
       </div>

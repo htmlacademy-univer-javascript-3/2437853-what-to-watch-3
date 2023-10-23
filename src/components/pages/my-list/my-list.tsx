@@ -1,7 +1,12 @@
-import FilmCard from '../../common/film-card/film-card';
 import {Link} from 'react-router-dom';
+import FilmList from '../../common/film-list/film-list';
+import {Film} from '../../../mocks/films';
 
-function MyList() {
+type MyListProps = {
+  films: Film[];
+}
+
+function MyList({films} : MyListProps) {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -29,54 +34,7 @@ function MyList() {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <div className="catalog__films-list">
-          <FilmCard
-            title="Fantastic Beasts: The Crimes of Grindelwald"
-            imgPath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-          />
-
-          <FilmCard
-            title="Bohemian Rhapsody"
-            imgPath="img/bohemian-rhapsody.jpg"
-          />
-
-          <FilmCard
-            title="Macbeth"
-            imgPath="img/macbeth.jpg"
-          />
-
-          <FilmCard
-            title="Aviator"
-            imgPath="img/aviator.jpg"
-          />
-
-
-          <FilmCard
-            title="We need to talk about Kevin"
-            imgPath="img/we-need-to-talk-about-kevin.jpg"
-          />
-
-          <FilmCard
-            title="What We Do in the Shadows"
-            imgPath="img/what-we-do-in-the-shadows.jpg"
-          />
-
-          <FilmCard
-            title="Revenant"
-            imgPath="img/revenant.jpg"
-          />
-
-          <FilmCard
-            title="Johnny English"
-            imgPath="img/johnny-english.jpg"
-          />
-
-
-          <FilmCard
-            title="Shutter Island"
-            imgPath="img/shutter-island.jpg"
-          />
-        </div>
+        <FilmList films={films}/>
       </section>
 
       <footer className="page-footer">
@@ -89,7 +47,7 @@ function MyList() {
         </div>
 
         <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
+          <p>© 2023 What to watch Ltd.</p>
         </div>
       </footer>
     </div>

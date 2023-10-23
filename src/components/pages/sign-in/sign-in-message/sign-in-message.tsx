@@ -45,7 +45,7 @@ function SignInMessage() {
         </div>
 
         <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
+          <p>© 2023 What to watch Ltd.</p>
         </div>
       </footer>
     </div>

@@ -120,22 +120,22 @@ function FilmInList() {
           <div className="catalog__films-list">
             <FilmCard
               title="Fantastic Beasts: The Crimes of Grindelwald"
-              imgPath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+              imagePath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
             />
 
             <FilmCard
               title="Bohemian Rhapsody"
-              imgPath="img/bohemian-rhapsody.jpg"
+              imagePath="img/bohemian-rhapsody.jpg"
             />
 
             <FilmCard
               title="Macbeth"
-              imgPath="img/macbeth.jpg"
+              imagePath="img/macbeth.jpg"
             />
 
             <FilmCard
               title="Aviator"
-              imgPath="img/aviator.jpg"
+              imagePath="img/aviator.jpg"
             />
           </div>
         </section>
@@ -150,7 +150,7 @@ function FilmInList() {
           </div>
 
           <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
+            <p>© 2023 What to watch Ltd.</p>
           </div>
         </footer>
       </div>
