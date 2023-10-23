@@ -1,14 +1,13 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
 import type {Film} from '../../../mocks/films';
-import films from '../../../mocks/films';
 import {useFilms} from '../../../hooks/use-films';
 
 type FilmProps = {
   films: Film[];
 }
 
-function Film(props: FilmProps) {
+function Film({films}: FilmProps) {
   const film = useFilms(films);
 
   return (
@@ -117,8 +116,7 @@ function Film(props: FilmProps) {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <FilmList films={props.films.slice(0, 4)}/>
+          <FilmList films={films.slice(0, 4)}/>
         </section>
 
         <footer className="page-footer">

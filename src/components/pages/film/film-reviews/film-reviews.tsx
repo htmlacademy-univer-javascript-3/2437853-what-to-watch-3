@@ -1,23 +1,31 @@
-import FilmCard from '../../../common/film-card/film-card';
+import {Link} from 'react-router-dom';
+import {Film} from '../../../../mocks/films';
+import {useFilms} from '../../../../hooks/use-films';
+import FilmList from '../../../common/film-list/film-list';
 
-function FilmReviews() {
+type FilmProps = {
+  films: Film[];
+}
+
+function FilmReviews({films}: FilmProps) {
+  const film = useFilms(films);
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src={film.imageBackgroundPath} alt={film.title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to="/" className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <ul className="user-block">
@@ -34,10 +42,10 @@ function FilmReviews() {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{film.title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{film.genre}</span>
+                <span className="film-card__year">{film.year}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -54,7 +62,7 @@ function FilmReviews() {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -185,28 +193,7 @@ function FilmReviews() {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
-
-          <div className="catalog__films-list">
-            <FilmCard
-              title="Fantastic Beasts: The Crimes of Grindelwald"
-              imagePath="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-            />
-
-            <FilmCard
-              title="Bohemian Rhapsody"
-              imagePath="img/bohemian-rhapsody.jpg"
-            />
-
-            <FilmCard
-              title="Macbeth"
-              imagePath="img/macbeth.jpg"
-            />
-
-            <FilmCard
-              title="Aviator"
-              imagePath="img/aviator.jpg"
-            />
-          </div>
+          <FilmList films={films.slice(0, 4)}/>
         </section>
 
         <footer className="page-footer">
