@@ -1,7 +1,16 @@
-function Player() {
+import {Film} from '../../../mocks/films';
+import {useFilms} from '../../../hooks/use-films';
+
+type PlayerProps = {
+  films: Film[];
+}
+
+
+function Player({films} : PlayerProps) {
+  const film = useFilms(films);
   return (
     <div className="player">
-      <video src="src/components/pages#" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src={film.videoPath} className="player__video" poster="img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 
