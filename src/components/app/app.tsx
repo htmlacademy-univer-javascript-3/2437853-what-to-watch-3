@@ -8,7 +8,8 @@ import AddReview from '../pages/add-review/add-review';
 import Player from '../pages/player/player';
 import NotFound from '../pages/not-found/not-found';
 import PrivateRoute from '../common/private-route/private-route';
-import films, {Film as FilmType} from '../../mocks/films';
+import films from '../../mocks/films';
+import type {Film as FilmType} from '../../types/film';
 
 type AppProps = {
   promo: Promo;
@@ -29,7 +30,7 @@ function App(props: AppProps) {
         <Route path="/login" element={<SignIn/>}/>
         <Route path="/mylist" element={
           <PrivateRoute>
-            <MyList films={films.filter((f) => f.addedToList)}/>
+            <MyList films={films.filter((f) => f.isFavorite)}/>
           </PrivateRoute>
         }
         />

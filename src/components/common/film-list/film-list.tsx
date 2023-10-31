@@ -1,4 +1,4 @@
-import {Film} from '../../../mocks/films';
+import {Film} from '../../../types/film';
 import FilmCard from '../film-card/film-card';
 import {useState} from 'react';
 
@@ -6,15 +6,19 @@ type FilmListProps = {
   films: Film[];
 }
 
-function FilmList({films} : FilmListProps) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars,@typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selected, setSelected] = useState(0);
+function FilmList({films}: FilmListProps) {
+  const [selected, setSelected] = useState('');
   return (
     <div className="catalog__films-list">
       {films.map((film) => (
-        <FilmCard key={film.id} id={film.id} title={film.title} imagePath={film.imageBackgroundPath}/>
+        <FilmCard
+          key={film.id}
+          film={film}
+          selected={selected === film.id}
+
+          onMouseEnter={() => setSelected(film.id)}
+          onMouseLeave={() => setSelected('')}
+        />
       ))}
     </div>
   );

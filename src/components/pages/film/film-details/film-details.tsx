@@ -1,5 +1,5 @@
 import {useFilms} from '../../../../hooks/use-films';
-import {Film} from '../../../../mocks/films';
+import {Film} from '../../../../types/film';
 import {Link} from 'react-router-dom';
 import FilmList from '../../../common/film-list/film-list';
 
@@ -14,7 +14,7 @@ function FilmDetails({films}: FilmProps) {
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={film.imageBackgroundPath} alt={film.title}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -42,10 +42,10 @@ function FilmDetails({films}: FilmProps) {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{film.title}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{film.genre}</span>
-                <span className="film-card__year">{film.year}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -71,7 +71,7 @@ function FilmDetails({films}: FilmProps) {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={film.imagePosterPath} alt={`${film.title} poster`} width="218" height="327"/>
+              <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
@@ -90,20 +90,21 @@ function FilmDetails({films}: FilmProps) {
               </nav>
 
               <div className="film-rating">
-                <div className="film-rating__score">{film.rating.score}</div>
+                <div className="film-rating__score">{film.rating}</div>
                 <p className="film-rating__meta">
-                  <span className="film-rating__level">{film.rating.level}</span>
-                  <span className="film-rating__count">{film.rating.reviewsCount} ratings</span>
+                  <span className="film-rating__level">Good</span>
+                  <span className="film-rating__count">{film.scoresCount} ratings</span>
                 </p>
               </div>
 
               <div className="film-card__text">
-                {film.info.description.split('\n').map((paragraph) => <p key='text'>{paragraph}</p>)}
+                {/* eslint-disable-next-line react/no-array-index-key */}
+                {film.description.split('\n').map((paragraph, i) => <p key={`${i}`}>{paragraph}</p>)}
 
-                <p className="film-card__director"><strong>Director: {film.info.director}</strong></p>
+                <p className="film-card__director"><strong>Director: {film.director}</strong></p>
 
                 <p className="film-card__starring">
-                  <strong>Starring: {film.info.starring}
+                  <strong>Starring: {film.starring}
                   </strong>
                 </p>
               </div>
