@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {Film} from '../../../../mocks/films';
+import {Film} from '../../../../types/film';
 import {useFilms} from '../../../../hooks/use-films';
 import FilmList from '../../../common/film-list/film-list';
 
@@ -14,7 +14,7 @@ function FilmReviews({films}: FilmProps) {
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={film.imageBackgroundPath} alt={film.title}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -42,10 +42,10 @@ function FilmReviews({films}: FilmProps) {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">{film.title}</h2>
+              <h2 className="film-card__title">{film.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{film.genre}</span>
-                <span className="film-card__year">{film.year}</span>
+                <span className="film-card__year">{film.released}</span>
               </p>
 
               <div className="film-card__buttons">
