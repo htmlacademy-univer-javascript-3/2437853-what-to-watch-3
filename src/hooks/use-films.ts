@@ -1,4 +1,4 @@
-import {Film} from '../types/film';
+import Film from '../types/film';
 import {useParams} from 'react-router-dom';
 
 export const useFilms = (films : Film[]) => {

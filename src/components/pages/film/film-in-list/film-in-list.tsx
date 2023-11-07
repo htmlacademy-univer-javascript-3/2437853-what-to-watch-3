@@ -1,5 +1,5 @@
 import {useFilms} from '../../../../hooks/use-films';
-import {Film} from '../../../../types/film';
+import Film from '../../../../types/film';
 import {Link} from 'react-router-dom';
 import FilmList from '../../../common/film-list/film-list';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import type Promo from '../../../types/promo';
 import FilmList from '../../common/film-list/film-list';
-import type {Film} from '../../../types/film';
+import type Film from '../../../types/film';
 
 type MainProps = {
   promo : Promo;

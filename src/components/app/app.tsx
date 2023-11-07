@@ -9,7 +9,7 @@ import Player from '../pages/player/player';
 import NotFound from '../pages/not-found/not-found';
 import PrivateRoute from '../common/private-route/private-route';
 import films from '../../mocks/films';
-import type {Film as FilmType} from '../../types/film';
+import type FilmType from '../../types/film';
 
 type AppProps = {
   promo: Promo;
