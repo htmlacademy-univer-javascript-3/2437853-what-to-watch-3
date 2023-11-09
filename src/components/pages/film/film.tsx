@@ -1,11 +1,13 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import type {Film} from '../../../types/film';
+import Film from '../../../types/film';
 import {useFilms} from '../../../hooks/use-films';
+import Tabs from './tabs';
 
 type FilmProps = {
   films: Film[];
 }
+
 
 function Film({films}: FilmProps) {
   const film = useFilms(films);
@@ -75,41 +77,7 @@ function Film({films}: FilmProps) {
               <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
-            <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="movie/movie-page#" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="movie/movie-page#" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="movie/movie-page#" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="film-rating">
-                <div className="film-rating__score">{film.rating}</div>
-                <p className="film-rating__meta">
-                  <span className="film-rating__level">Good</span>
-                  <span className="film-rating__count">{film.scoresCount} ratings</span>
-                </p>
-              </div>
-
-              <div className="film-card__text">
-                {/* eslint-disable-next-line react/no-array-index-key */}
-                {film.description.split('\n').map((paragraph, i) => <p key={`${i}`}>{paragraph}</p>)}
-
-                <p className="film-card__director"><strong>Director: {film.director}</strong></p>
-
-                <p className="film-card__starring">
-                  <strong>Starring: {film.starring.join(', ')}
-                  </strong>
-                </p>
-              </div>
-            </div>
+            <Tabs film={film}/>
           </div>
         </div>
       </section>

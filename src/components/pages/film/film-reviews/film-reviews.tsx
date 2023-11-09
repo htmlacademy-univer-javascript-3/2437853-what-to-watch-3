@@ -1,216 +1,64 @@
-import {Link} from 'react-router-dom';
-import {Film} from '../../../../types/film';
-import {useFilms} from '../../../../hooks/use-films';
-import FilmList from '../../../common/film-list/film-list';
+import Film from '../../../../types/film';
+import reviews from '../../../../mocks/reviews';
+import Review from '../../../../types/review';
 
-type FilmProps = {
-  films: Film[];
+type ReviewCardProps = {
+  review: Review;
 }
 
-function FilmReviews({films}: FilmProps) {
-  const film = useFilms(films);
+type FilmProps = {
+  film: Film;
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function getReviews(film: Film) {
+  return reviews;
+}
+
+function formatDate(date: Date) {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  } as const;
+  return date.toLocaleDateString('en-US', options);
+}
+
+function ReviewCard({review}: ReviewCardProps) {
   return (
-    <>
-      <section className="film-card film-card--full">
-        <div className="film-card__hero">
-          <div className="film-card__bg">
-            <img src={film.backgroundImage} alt={film.name}/>
-          </div>
+    <div key={review.id} className="review">
+      <blockquote className="review__quote">
+        <p className="review__text">{review.comment}</p>
 
-          <h1 className="visually-hidden">WTW</h1>
-
-          <header className="page-header film-card__head">
-            <div className="logo">
-              <Link to="/" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
-
-            <ul className="user-block">
-              <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-                </div>
-              </li>
-              <li className="user-block__item">
-                <a className="user-block__link">Sign out</a>
-              </li>
-            </ul>
-          </header>
-
-          <div className="film-card__wrap">
-            <div className="film-card__desc">
-              <h2 className="film-card__title">{film.name}</h2>
-              <p className="film-card__meta">
-                <span className="film-card__genre">{film.genre}</span>
-                <span className="film-card__year">{film.released}</span>
-              </p>
-
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
-                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="film-card__wrap film-card__translate-top">
-          <div className="film-card__info">
-            <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
-            </div>
-
-            <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item">
-                    <a href="movie/movie-page-reviews#" className="film-nav__link">Overview</a>
-                  </li>
-                  <li className="film-nav__item">
-                    <a href="movie/movie-page-reviews#" className="film-nav__link">Details</a>
-                  </li>
-                  <li className="film-nav__item film-nav__item--active">
-                    <a href="movie/movie-page-reviews#" className="film-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <div className="film-card__reviews film-card__row">
-                <div className="film-card__reviews-col">
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">Discerning travellers and Wes Anderson fans will luxuriate in the
-                        glorious Mittel-European kitsch of one of the director&#39s funniest and most exquisitely designed
-                        films in years.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Kate Muir</cite>
-                        <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">8,9</div>
-                  </div>
-
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">Anderson&#39s films are too precious for some, but for those of us
-                        willing to lose ourselves in them, they&#39re a delight. &#34The Grand Budapest Hotel&#34 is no
-                        different, except that he has added a hint of gravitas to the mix, improving the recipe.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Bill Goodykoontz</cite>
-                        <time className="review__date" dateTime="2015-11-18">November 18, 2015</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">8,0</div>
-                  </div>
-
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">I didn&#39t find it amusing, and while I can appreciate the creativity,
-                        it&#39s an hour and 40 minutes I wish I could take back.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Amanda Greever</cite>
-                        <time className="review__date" dateTime="2015-11-18">November 18, 2015</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">8,0</div>
-                  </div>
-                </div>
-                <div className="film-card__reviews-col">
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">The mannered, madcap proceedings are often delightful, occasionally
-                        silly, and here and there, gruesome and/or heartbreaking.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Matthew Lickona</cite>
-                        <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">7,2</div>
-                  </div>
-
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">It is certainly a magical and childlike way of storytelling, even if
-                        the content is a little more adult.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Paula Fleri-Soler</cite>
-                        <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">7,6</div>
-                  </div>
-
-                  <div className="review">
-                    <blockquote className="review__quote">
-                      <p className="review__text">It is certainly a magical and childlike way of storytelling, even if
-                        the content is a little more adult.
-                      </p>
-
-                      <footer className="review__details">
-                        <cite className="review__author">Paula Fleri-Soler</cite>
-                        <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
-                      </footer>
-                    </blockquote>
-
-                    <div className="review__rating">7,0</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
-          <FilmList films={films.slice(0, 4)}/>
-        </section>
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2023 What to watch Ltd.</p>
-          </div>
+        <footer className="review__details">
+          <cite className="review__author">{review.user}</cite>
+          <time className="review__date" dateTime={review.date.toString()}>{formatDate(review.date)}</time>
         </footer>
+      </blockquote>
+
+      <div className="review__rating">{review.rating.toFixed(1)}</div>
+    </div>);
+}
+
+function FilmReviews({film}: FilmProps) {
+  const reviewsList = getReviews(film);
+  const reviewsCol1 = reviewsList.slice(0, reviewsList.length / 2);
+  const reviewsCol2 = reviewsList.slice(reviewsList.length / 2);
+  return (
+    <div className="film-card__reviews film-card__row">
+      <div className="film-card__reviews-col">
+        {reviewsCol1.map((review) => (
+          <ReviewCard key={review.id} review={review}/>
+        ))}
       </div>
-    </>
+      <div className="film-card__reviews-col">
+        {reviewsCol2.map((review) => (
+          <ReviewCard key={review.id} review={review}/>
+        ))}
+      </div>
+    </div>
   );
 }
 

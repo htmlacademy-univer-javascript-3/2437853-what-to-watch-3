@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {Film} from '../../../types/film';
+import Film from '../../../types/film';
 import ReviewForm from '../../common/review-form/review-form';
 import {useFilms} from '../../../hooks/use-films';
 

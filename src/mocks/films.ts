@@ -1,4 +1,4 @@
-import {Film} from '../types/film';
+import Film from '../types/film';
 
 
 const films: Film[] = [
@@ -10,14 +10,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: 8.9,
     scoresCount: 240,
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: 'Drama',
     released: 2014,
@@ -31,14 +31,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -53,14 +53,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -75,14 +75,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -97,14 +97,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -119,14 +119,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -141,14 +141,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -163,14 +163,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -185,14 +185,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -207,14 +207,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -229,14 +229,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -251,14 +251,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -273,14 +273,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -295,14 +295,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -317,14 +317,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -339,14 +339,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -361,14 +361,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -383,14 +383,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -405,14 +405,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -427,14 +427,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,
@@ -449,14 +449,14 @@ const films: Film[] = [
     backgroundColor: '#000',
     videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
-      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&#39s friend and protege.\nGustave prides ' +
-      'himself on providing first-class service to the hotel&#39s guests, including satisfying the sexual needs of ' +
-      'the many elderly women who stay there. When one of Gustave&#39s lovers dies mysteriously, Gustave finds ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
       'himself the recipient of a priceless painting and the chief suspect in her murder.',
     rating: Math.floor(Math.random() * 100) / 10,
     scoresCount: 100 + Math.floor(Math.random() * 100),
     director: 'Wes Anderson',
-    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe'],
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
     runTime: 99,
     genre: '',
     released: 2014,

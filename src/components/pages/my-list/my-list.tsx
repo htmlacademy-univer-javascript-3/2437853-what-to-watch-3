@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import {Film} from '../../../types/film';
+import Film from '../../../types/film';
 
 type MyListProps = {
   films: Film[];
