@@ -1,4 +1,3 @@
-import {NavLink} from 'react-router-dom';
 import {useState} from 'react';
 import FilmOverview from './film-ovewview/film-overview';
 import FilmDetails from './film-details/film-details';
@@ -46,25 +45,25 @@ function FilmTabs({film} : FilmTabsProps) {
       <nav className="film-nav film-card__nav">
         <ul className="film-nav__list">
           <li className={getTabStyles(Tabs.Overview)}>
-            <NavLink
-              className="film-nav__link" to=""
+            <div
+              className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Overview)}
             >Overview
-            </NavLink>
+            </div>
           </li>
           <li className={getTabStyles(Tabs.Details)}>
-            <NavLink
-              className="film-nav__link" to=""
+            <div
+              className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Details)}
             >Details
-            </NavLink>
+            </div>
           </li>
           <li className={getTabStyles(Tabs.Reviews)}>
-            <NavLink
-              className="film-nav__link" to=""
+            <div
+              className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Reviews)}
             >Reviews
-            </NavLink>
+            </div>
           </li>
         </ul>
       </nav>
