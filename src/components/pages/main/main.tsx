@@ -4,8 +4,8 @@ import FilmList from '../../common/film-list/film-list';
 import type Film from '../../../types/film';
 import GenreList from '../../common/genre-list/genre-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
-import {getFilms} from "../../../store/action";
-import {useDispatch} from "react-redux";
+import {getFilms} from '../../../store/action';
+import {useDispatch} from 'react-redux';
 
 type MainProps = {
   promo: Promo;
@@ -18,7 +18,7 @@ function Main(props: MainProps) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFilms());
-  }, [selectedGenre]);
+  }, [selectedGenre, dispatch]);
   const films = useAppSelector((state) => state.films);
 
   return (

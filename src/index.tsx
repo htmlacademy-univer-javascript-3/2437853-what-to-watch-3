@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import Promo from './types/promo';
 import films from './mocks/films';
-import {Provider} from "react-redux";
-import {store} from "./store";
+import {Provider} from 'react-redux';
+import {store} from './store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
