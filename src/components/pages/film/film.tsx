@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import Film from '../../../types/film';
+import FilmType from '../../../types/film';
 import {useFilms} from '../../../hooks/use-films';
 import Tabs from './tabs';
 
 type FilmProps = {
-  films: Film[];
+  films: FilmType[];
 }
 
 

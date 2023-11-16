@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import Film from '../../../types/film';
 import {useEffect, useState} from 'react';
 import Player from '../player/player';
+import {PreviewDelay} from '../../../const';
 
 type FilmCardProps = {
   film: Film;
@@ -15,7 +16,7 @@ function FilmCard(props: FilmCardProps) {
   const [waited, setWaited] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setWaited(true), 1000);
+    const timer = setTimeout(() => setWaited(true), PreviewDelay);
     return () => clearTimeout(timer);
   });
   return (
