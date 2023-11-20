@@ -22,7 +22,6 @@ function App(props: AppProps) {
       <Routes>
         <Route path="/" element={
           <Main
-            films={props.films}
             promo={props.promo}
           />
         }

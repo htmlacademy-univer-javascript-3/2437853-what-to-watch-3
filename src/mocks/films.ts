@@ -242,7 +242,207 @@ const films: Film[] = [
     released: 2014,
     isFavorite: false,
   },
-
+  {
+    id: '100',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '101',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '102',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '103',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '104',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '105',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '106',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '107',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '108',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  }, {
+    id: '109',
+    name: 'Pulp Fiction',
+    posterImage: 'img/pulp-fiction.jpg',
+    backgroundImage: 'img/pulp-fiction.jpg',
+    backgroundColor: '#000',
+    videoLink: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge ' +
+      'Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege.\nGustave prides ' +
+      'himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of ' +
+      'the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds ' +
+      'himself the recipient of a priceless painting and the chief suspect in her murder.',
+    rating: Math.floor(Math.random() * 100) / 10,
+    scoresCount: 100 + Math.floor(Math.random() * 100),
+    director: 'Wes Anderson',
+    starring: ['Bill Murray', 'Edward Norton', 'Jude Law', 'Willem Dafoe', 'Saoirse Ronan', 'Tony Revoloru', 'Tilda Swinton', 'Tom Wilkinson', 'Owen Wilkinson', 'Adrien Brody', 'Ralph Fiennes', 'Jeff Goldblum'],
+    runTime: 99,
+    genre: 'Thriller',
+    released: 2014,
+    isFavorite: false,
+  },
   {
     id: '11',
     name: 'No Country for Old Men',

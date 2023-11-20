@@ -45,25 +45,31 @@ function FilmTabs({film} : FilmTabsProps) {
       <nav className="film-nav film-card__nav">
         <ul className="film-nav__list">
           <li className={getTabStyles(Tabs.Overview)}>
-            <div
+            <button
+              type='button'
+              style={{border: 0, background: 'transparent'}}
               className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Overview)}
             >Overview
-            </div>
+            </button>
           </li>
           <li className={getTabStyles(Tabs.Details)}>
-            <div
+            <button
+              type='button'
+              style={{border: 0, background: 'transparent'}}
               className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Details)}
             >Details
-            </div>
+            </button>
           </li>
           <li className={getTabStyles(Tabs.Reviews)}>
-            <div
+            <button
+              type='button'
+              style={{border: 0, background: 'transparent'}}
               className="film-nav__link"
               onClick={() => handleTabClick(Tabs.Reviews)}
             >Reviews
-            </div>
+            </button>
           </li>
         </ul>
       </nav>
