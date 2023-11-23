@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import Film from '../../../types/film';
 import {useEffect, useState} from 'react';
 import Player from '../player/player';
-import {PreviewDelay} from '../../../const';
+import {PREVIEW_DELAY} from '../../../const';
 
 type FilmCardProps = {
   film: Film;
@@ -13,22 +13,24 @@ type FilmCardProps = {
 }
 
 function FilmCard(props: FilmCardProps) {
-  const [waited, setWaited] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setWaited(true), PreviewDelay);
-    return () => clearTimeout(timer);
-  });
+    if(props.selected) {
+      const timer = setTimeout(() => setShowPreview(true), PREVIEW_DELAY);
+      return () => clearTimeout(timer);
+    } else {
+      setShowPreview(false);
+    }
+  }, [showPreview, props.selected]);
+
   return (
     <article
       className="small-film-card catalog__films-card"
       onMouseEnter={props.onMouseEnter}
-      onMouseLeave={(e) => {
-        setWaited(false);
-        props.onMouseLeave(e);
-      }}
+      onMouseLeave={props.onMouseLeave}
     >
-      {props.selected && waited
+      {props.selected && showPreview
         ? (
           <Player autoPlay muted videoLink={props.film.videoLink}/>
         )

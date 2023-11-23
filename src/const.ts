@@ -1,3 +1,3 @@
-export const AllGenres = 'AllGenres';
+export const ALL_GENRES = 'AllGenres';
 
-export const PreviewDelay = 1000;
+export const PREVIEW_DELAY = 1000;

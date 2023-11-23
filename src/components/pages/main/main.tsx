@@ -1,22 +1,24 @@
 import React, {useEffect} from 'react';
 import type Promo from '../../../types/promo';
 import FilmList from '../../common/film-list/film-list';
-import type Film from '../../../types/film';
 import GenreList from '../../common/genre-list/genre-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
-import {getFilms} from '../../../store/action';
+import {getFilms, setFilmsCount} from '../../../store/action';
 import {useDispatch} from 'react-redux';
+import ShowMoreButton from '../../common/show-more-button/show-more-button';
 
 type MainProps = {
   promo: Promo;
-  films: Film[];
 }
 
 function Main(props: MainProps) {
 
   const selectedGenre = useAppSelector((state) => state.genre);
+  const filmsCount = useAppSelector((state) => state.filmsCount);
   const dispatch = useDispatch();
+
   useEffect(() => {
+    dispatch(setFilmsCount(8));
     dispatch(getFilms());
   }, [selectedGenre, dispatch]);
   const films = useAppSelector((state) => state.films);
@@ -58,7 +60,7 @@ function Main(props: MainProps) {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{props.promo.title}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{props.promo.genre}</span>
                 <span className="film-card__year">{props.promo.year}</span>
@@ -88,13 +90,12 @@ function Main(props: MainProps) {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenreList films={props.films} currentGenre={selectedGenre}/>
+          <GenreList currentGenre={selectedGenre}/>
 
           <FilmList films={films}/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+          {filmsCount < films.length ? <ShowMoreButton/> : <></>}
         </section>
 
         <footer className="page-footer">
