@@ -6,6 +6,7 @@ import {useAppSelector} from '../../../hooks/use-app-selector';
 import {getFilms, setFilmsCount} from '../../../store/action';
 import {useDispatch} from 'react-redux';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
+import Spinner from '../../common/spinner/spinner';
 
 type MainProps = {
   promo: Promo;
@@ -15,16 +16,18 @@ function Main(props: MainProps) {
 
   const selectedGenre = useAppSelector((state) => state.genre);
   const filmsCount = useAppSelector((state) => state.filmsCount);
+  const films = useAppSelector((state) => state.filteredFilms);
+  const allFilms = useAppSelector((state) => state.allFilms);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setFilmsCount(8));
     dispatch(getFilms());
-  }, [selectedGenre, dispatch]);
-  const films = useAppSelector((state) => state.films);
+  }, [selectedGenre, allFilms, dispatch]);
 
   return (
     <React.Fragment>
+      <Spinner/>
       <section className="film-card">
         <div className="film-card__bg">
           <img src={props.promo.backgroundImagePath} alt={props.promo.title}/>
@@ -94,8 +97,7 @@ function Main(props: MainProps) {
 
           <FilmList films={films}/>
 
-          {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-          {filmsCount < films.length ? <ShowMoreButton/> : <></>}
+          {filmsCount < films.length ? <ShowMoreButton/> : null}
         </section>
 
         <footer className="page-footer">

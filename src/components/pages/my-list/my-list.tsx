@@ -1,12 +1,11 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import Film from '../../../types/film';
+import {useAppSelector} from '../../../hooks/use-app-selector';
 
-type MyListProps = {
-  films: Film[];
-}
+function MyList() {
+  const allFilms = useAppSelector((state) => state.allFilms);
+  const films = allFilms.filter((film) => film.isFavorite);
 
-function MyList({films} : MyListProps) {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">

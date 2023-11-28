@@ -1,13 +1,11 @@
-import Film from '../../../types/film';
-import {useFilms} from '../../../hooks/use-films';
+import {useFilm} from '../../../hooks/use-film';
+import NotFound from '../not-found/not-found';
 
-type PlayerProps = {
-  films: Film[];
-}
-
-
-function Player({films} : PlayerProps) {
-  const film = useFilms(films);
+function Player() {
+  const {film} = useFilm();
+  if (!film) {
+    return <NotFound/>;
+  }
   return (
     <div className="player">
       <video

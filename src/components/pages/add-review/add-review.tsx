@@ -1,14 +1,15 @@
 import {Link} from 'react-router-dom';
-import Film from '../../../types/film';
 import ReviewForm from '../../common/review-form/review-form';
-import {useFilms} from '../../../hooks/use-films';
+import {useFilm} from '../../../hooks/use-film';
+import NotFound from '../not-found/not-found';
 
-type AddReviewProps = {
-  films: Film[];
-}
+function AddReview() {
+  const {film} = useFilm();
 
-function AddReview({films} : AddReviewProps) {
-  const film = useFilms(films);
+  if (!film) {
+    return <NotFound/>;
+  }
+
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
