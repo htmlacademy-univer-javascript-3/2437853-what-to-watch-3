@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import Promo from './types/promo';
-import films from './mocks/films';
 import {Provider} from 'react-redux';
 import {store} from './store';
+import {fetchFilms} from './store/api-action';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,12 +19,13 @@ const promo: Promo = {
   year: 2014,
 };
 
+store.dispatch(fetchFilms());
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App
         promo={promo}
-        films={films}
       />
     </Provider>
   </React.StrictMode>

@@ -1,16 +1,27 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import FilmType from '../../../types/film';
-import {useFilms} from '../../../hooks/use-films';
+import {useFilm} from '../../../hooks/use-film';
 import Tabs from './tabs';
+import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
+import {useEffect} from 'react';
+import {fetchSimilar} from '../../../store/api-action';
+import NotFound from '../not-found/not-found';
 
-type FilmProps = {
-  films: FilmType[];
-}
 
+function Film() {
+  const dispatch = useAppDispatch();
+  const {film, id} = useFilm();
 
-function Film({films}: FilmProps) {
-  const film = useFilms(films);
+  useEffect(() => {
+    if(id) {
+      dispatch(fetchSimilar(id));
+    }
+  }, [dispatch, id]);
+  const films = useAppSelector((state) => state.similarFilms);
+
+  if (!film) {
+    return <NotFound/>;
+  }
 
   return (
     <>

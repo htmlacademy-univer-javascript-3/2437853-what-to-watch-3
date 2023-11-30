@@ -9,10 +9,11 @@ type GenreListProps = {
 
 function GenreList(props: GenreListProps) {
   const dispatch = useDispatch();
+  const allFilms = useAppSelector((state) => state.allFilms);
 
   useEffect(() => {
     dispatch(getGenres());
-  }, [dispatch]);
+  }, [dispatch, allFilms]);
 
   const genres = useAppSelector((state) => state.genres);
   return (

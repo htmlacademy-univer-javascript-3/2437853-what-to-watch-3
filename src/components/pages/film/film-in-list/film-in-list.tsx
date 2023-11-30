@@ -1,14 +1,19 @@
-import {useFilms} from '../../../../hooks/use-films';
+import {useFilm} from '../../../../hooks/use-film';
 import Film from '../../../../types/film';
 import {Link} from 'react-router-dom';
 import FilmList from '../../../common/film-list/film-list';
+import NotFound from '../../not-found/not-found';
 
 type FilmProps = {
   films: Film[];
 }
 
 function FilmInList({films}: FilmProps) {
-  const film = useFilms(films);
+  const {film} = useFilm();
+  if (!film) {
+    return <NotFound/>;
+  }
+
   return (
     <>
       <section className="film-card film-card--full">
