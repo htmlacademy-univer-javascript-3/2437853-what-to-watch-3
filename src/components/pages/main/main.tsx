@@ -7,6 +7,7 @@ import {getFilms, setFilmsCount} from '../../../store/action';
 import {useDispatch} from 'react-redux';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import Spinner from '../../common/spinner/spinner';
+import UserBlock from "../../common/user-block/user-block";
 
 type MainProps = {
   promo: Promo;
@@ -44,16 +45,7 @@ function Main(props: MainProps) {
             </a>
           </div>
 
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
+          <UserBlock/>
         </header>
 
         <div className="film-card__wrap">
