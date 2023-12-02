@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import {useEffect} from 'react';
 import {fetchSimilar} from '../../../store/api-action';
 import NotFound from '../not-found/not-found';
-import UserBlock from "../../common/user-block/user-block";
+import UserBlock from '../../common/user-block/user-block';
 
 
 function Film() {

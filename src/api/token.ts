@@ -1,4 +1,4 @@
-import {AUTH_TOKEN_KEY} from "../const";
+import {AUTH_TOKEN_KEY} from '../const';
 
 export function getToken() {
   return localStorage.getItem(AUTH_TOKEN_KEY) ?? '';

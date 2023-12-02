@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import ReviewForm from '../../common/review-form/review-form';
 import {useFilm} from '../../../hooks/use-film';
 import NotFound from '../not-found/not-found';
-import UserBlock from "../../common/user-block/user-block";
+import UserBlock from '../../common/user-block/user-block';
 
 function AddReview() {
   const {film} = useFilm();

@@ -2,7 +2,7 @@ import {Link, Navigate} from 'react-router-dom';
 import {FormEvent, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import {loginPost} from '../../../store/api-action';
-import {AuthStatus} from "../../../types/auth-status";
+import {AuthStatus} from '../../../types/auth-status';
 
 function SignIn() {
   const authStatus = useAppSelector((state) => state.authorizationStatus);

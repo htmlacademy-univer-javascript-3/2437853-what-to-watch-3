@@ -1,6 +1,6 @@
 import Film from './film';
-import {AuthStatus} from "./auth-status";
-import {UserInfo} from "./user-info";
+import {AuthStatus} from './auth-status';
+import {UserInfo} from './user-info';
 
 export type State = {
   genre: string;

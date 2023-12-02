@@ -1,7 +1,7 @@
 import {createAction} from '@reduxjs/toolkit';
 import Film from '../types/film';
-import {AuthStatus} from "../types/auth-status";
-import {UserInfo} from "../types/user-info";
+import {AuthStatus} from '../types/auth-status';
+import {UserInfo} from '../types/user-info';
 
 export const changeGenre = createAction<string>('changeGenre');
 export const setFilms = createAction<Film[]>('setFilms');

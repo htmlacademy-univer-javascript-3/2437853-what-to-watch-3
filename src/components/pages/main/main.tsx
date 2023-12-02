@@ -7,7 +7,7 @@ import {getFilms, setFilmsCount} from '../../../store/action';
 import {useDispatch} from 'react-redux';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import Spinner from '../../common/spinner/spinner';
-import UserBlock from "../../common/user-block/user-block";
+import UserBlock from '../../common/user-block/user-block';
 
 type MainProps = {
   promo: Promo;

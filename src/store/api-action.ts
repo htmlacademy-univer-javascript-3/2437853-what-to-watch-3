@@ -56,7 +56,7 @@ export const loginGet = createAsyncThunk<void, undefined,{
   state: State;
   extra: AxiosInstance;
 }>(
-  "loginGet",
+  'loginGet',
   async (_, {dispatch, extra:api}) => {
     const {data} = await api.get<AuthInfo>('/login');
     dispatch(setAuthStatus(AuthStatus.Authorized));
