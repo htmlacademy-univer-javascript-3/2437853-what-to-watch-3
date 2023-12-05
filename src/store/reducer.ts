@@ -2,15 +2,16 @@ import {createReducer} from '@reduxjs/toolkit';
 import {
   changeGenre,
   getFilms,
-  getGenres,
+  getGenres, setAuthStatus,
   setCurrentFilm,
   setFilms,
   setFilmsCount,
   setLoadingStatus,
-  setSimilarFilms
+  setSimilarFilms, setUser
 } from './action';
 import {State} from '../types/state';
 import {ALL_GENRES} from '../const';
+import {AuthStatus} from '../types/auth-status';
 
 const initialState: State = {
   genre: ALL_GENRES,
@@ -21,6 +22,8 @@ const initialState: State = {
   currentFilm: null,
   loading: false,
   similarFilms: [],
+  authorizationStatus: AuthStatus.Unknown,
+  userInfo: null,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -40,5 +43,9 @@ export const reducer = createReducer(initialState, (builder) => {
     state.loading = action.payload;
   }).addCase(setSimilarFilms, (state, action) => {
     state.similarFilms = action.payload;
+  }).addCase(setAuthStatus, (state, action) => {
+    state.authorizationStatus = action.payload;
+  }).addCase(setUser, (state, action) => {
+    state.userInfo = action.payload;
   });
 });

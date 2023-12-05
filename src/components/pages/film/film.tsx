@@ -6,6 +6,7 @@ import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import {useEffect} from 'react';
 import {fetchSimilar} from '../../../store/api-action';
 import NotFound from '../not-found/not-found';
+import UserBlock from '../../common/user-block/user-block';
 
 
 function Film() {
@@ -42,16 +43,7 @@ function Film() {
               </Link>
             </div>
 
-            <ul className="user-block">
-              <li className="user-block__item">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-                </div>
-              </li>
-              <li className="user-block__item">
-                <a className="user-block__link">Sign out</a>
-              </li>
-            </ul>
+            <UserBlock/>
           </header>
 
           <div className="film-card__wrap">
@@ -70,8 +62,9 @@ function Film() {
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
+                  {/*todo*/}
                   <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                    <use xlinkHref={film.isFavorite ? '#in-list' : '#add'}></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>

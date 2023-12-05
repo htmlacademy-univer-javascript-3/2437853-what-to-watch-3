@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 import ReviewForm from '../../common/review-form/review-form';
 import {useFilm} from '../../../hooks/use-film';
 import NotFound from '../not-found/not-found';
+import UserBlock from '../../common/user-block/user-block';
 
 function AddReview() {
   const {film} = useFilm();
@@ -39,16 +40,7 @@ function AddReview() {
             </ul>
           </nav>
 
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
+          <UserBlock/>
         </header>
 
         <div className="film-card__poster film-card__poster--small">

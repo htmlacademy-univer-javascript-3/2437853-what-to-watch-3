@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import UserBlock from '../../common/user-block/user-block';
 
 function HeadGuest() {
   return (
@@ -19,9 +19,7 @@ function HeadGuest() {
           </a>
         </div>
 
-        <div className="user-block">
-          <Link to="/login" className="user-block__link">Sign in</Link>
-        </div>
+        <UserBlock/>
       </header>
 
     </section>

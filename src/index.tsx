@@ -4,7 +4,7 @@ import App from './components/app/app';
 import Promo from './types/promo';
 import {Provider} from 'react-redux';
 import {store} from './store';
-import {fetchFilms} from './store/api-action';
+import {fetchFilms, loginGet} from './store/api-action';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,6 +20,7 @@ const promo: Promo = {
 };
 
 store.dispatch(fetchFilms());
+store.dispatch(loginGet());
 
 root.render(
   <React.StrictMode>

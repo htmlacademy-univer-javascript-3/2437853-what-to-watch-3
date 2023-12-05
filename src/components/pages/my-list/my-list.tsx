@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
+import UserBlock from '../../common/user-block/user-block';
 
 function MyList() {
   const allFilms = useAppSelector((state) => state.allFilms);
@@ -18,16 +19,7 @@ function MyList() {
         </div>
 
         <h1 className="page-title user-page__title">My list <span className="user-page__film-count">9</span></h1>
-        <ul className="user-block">
-          <li className="user-block__item">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-            </div>
-          </li>
-          <li className="user-block__item">
-            <a className="user-block__link">Sign out</a>
-          </li>
-        </ul>
+        <UserBlock/>
       </header>
 
       <section className="catalog">
