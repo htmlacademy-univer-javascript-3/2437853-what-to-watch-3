@@ -1,9 +1,12 @@
 type Promo = {
-  title: string;
-  backgroundImagePath: string;
-  posterImagePath: string;
+  id: string;
+  name: string;
+  backgroundImage: string;
+  posterImage: string;
   genre: string;
-  year: number;
+  released: number;
+  isFavourite: boolean;
+  videoLink: string;
 }
 
 export default Promo;

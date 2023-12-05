@@ -32,7 +32,7 @@ function FilmTabs({film} : FilmTabsProps) {
       case Tabs.Details:
         return (<FilmDetails film={film}/>);
       case Tabs.Reviews:
-        return (<FilmReviews film={film}/>);
+        return (<FilmReviews/>);
     }
   }
 

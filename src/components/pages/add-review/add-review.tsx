@@ -48,7 +48,7 @@ function AddReview() {
         </div>
       </div>
 
-      <ReviewForm/>
+      <ReviewForm filmId={film.id}/>
 
     </section>
   );

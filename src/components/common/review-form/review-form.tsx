@@ -1,4 +1,7 @@
 import {useState} from 'react';
+import {useAppDispatch} from '../../../hooks/use-app-selector';
+import {commentPost} from '../../../store/api-action';
+import {useNavigate} from 'react-router-dom';
 
 type RatingStarProps = {
   state: { rating: number; comment: string };
@@ -27,8 +30,14 @@ function RatingStar(props: RatingStarProps) {
   );
 }
 
-function ReviewForm() {
+type ReviewFormProps = {
+  filmId: string;
+};
+
+function ReviewForm({filmId} : ReviewFormProps) {
   const [state, setState] = useState({rating: 0, comment: ''});
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   return (
     <div className="add-review">
       <form action="#" className="add-review__form">
@@ -60,7 +69,16 @@ function ReviewForm() {
             })}
           />
           <div className="add-review__submit">
-            <button className="add-review__btn" type="submit">Post</button>
+            <button
+              className="add-review__btn"
+              type="button"
+              onClick={() => {
+                dispatch(commentPost({filmId, commentRequest:state}));
+                navigate(`/films/${filmId}`);
+              }}
+            >
+              Post
+            </button>
           </div>
 
         </div>

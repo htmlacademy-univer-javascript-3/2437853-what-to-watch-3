@@ -1,20 +1,8 @@
-import Film from '../../../../types/film';
-import reviews from '../../../../mocks/reviews';
-import Review from '../../../../types/review';
+import Comment from '../../../../types/comment';
+import {useAppSelector} from '../../../../hooks/use-app-selector';
 
 type ReviewCardProps = {
-  review: Review;
-}
-
-type FilmProps = {
-  film: Film;
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function getReviews(film: Film) {
-  return reviews;
+  review: Comment;
 }
 
 function formatDate(date: Date) {
@@ -34,7 +22,7 @@ function ReviewCard({review}: ReviewCardProps) {
 
         <footer className="review__details">
           <cite className="review__author">{review.user}</cite>
-          <time className="review__date" dateTime={review.date.toString()}>{formatDate(review.date)}</time>
+          <time className="review__date" dateTime={review.date.toString()}>{formatDate(new Date(review.date))}</time>
         </footer>
       </blockquote>
 
@@ -42,19 +30,19 @@ function ReviewCard({review}: ReviewCardProps) {
     </div>);
 }
 
-function FilmReviews({film}: FilmProps) {
-  const reviewsList = getReviews(film);
-  const reviewsCol1 = reviewsList.slice(0, reviewsList.length / 2);
-  const reviewsCol2 = reviewsList.slice(reviewsList.length / 2);
+function FilmReviews() {
+  const comments = useAppSelector((state) => state.comments);
+  const comments1 = comments.slice(0, comments.length / 2 + 1);
+  const comments2 = comments.slice(comments.length / 2 + 1);
   return (
     <div className="film-card__reviews film-card__row">
       <div className="film-card__reviews-col">
-        {reviewsCol1.map((review) => (
+        {comments1.map((review) => (
           <ReviewCard key={review.id} review={review}/>
         ))}
       </div>
       <div className="film-card__reviews-col">
-        {reviewsCol2.map((review) => (
+        {comments2.map((review) => (
           <ReviewCard key={review.id} review={review}/>
         ))}
       </div>
