@@ -4,18 +4,21 @@ import {useFilm} from '../../../hooks/use-film';
 import Tabs from './tabs';
 import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import {useEffect} from 'react';
-import {fetchSimilar} from '../../../store/api-action';
+import {fetchComments, fetchSimilar} from '../../../store/api-action';
 import NotFound from '../not-found/not-found';
 import UserBlock from '../../common/user-block/user-block';
+import {AuthStatus} from '../../../types/auth-status';
 
 
 function Film() {
   const dispatch = useAppDispatch();
   const {film, id} = useFilm();
+  const authStatus = useAppSelector((state) => state.authorizationStatus);
 
   useEffect(() => {
-    if(id) {
+    if (id) {
       dispatch(fetchSimilar(id));
+      dispatch(fetchComments(id));
     }
   }, [dispatch, id]);
   const films = useAppSelector((state) => state.similarFilms);
@@ -69,7 +72,11 @@ function Film() {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>
+                {
+                  authStatus === AuthStatus.Authorized
+                    ? (<Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>)
+                    : null
+                }
               </div>
             </div>
           </div>

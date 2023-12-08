@@ -1,9 +1,9 @@
-type Review = {
+type Comment = {
   id: string;
   comment: string;
   user: string;
   rating: number;
-  date: Date;
+  date: string;
 };
 
-export default Review;
+export default Comment;

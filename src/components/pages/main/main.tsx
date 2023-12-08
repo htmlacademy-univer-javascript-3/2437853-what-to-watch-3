@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import type Promo from '../../../types/promo';
 import FilmList from '../../common/film-list/film-list';
 import GenreList from '../../common/genre-list/genre-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
@@ -9,13 +8,10 @@ import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import Spinner from '../../common/spinner/spinner';
 import UserBlock from '../../common/user-block/user-block';
 
-type MainProps = {
-  promo: Promo;
-}
-
-function Main(props: MainProps) {
+function Main() {
 
   const selectedGenre = useAppSelector((state) => state.genre);
+  const promo = useAppSelector((state) => state.promo);
   const filmsCount = useAppSelector((state) => state.filmsCount);
   const films = useAppSelector((state) => state.filteredFilms);
   const allFilms = useAppSelector((state) => state.allFilms);
@@ -31,7 +27,7 @@ function Main(props: MainProps) {
       <Spinner/>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src={props.promo.backgroundImagePath} alt={props.promo.title}/>
+          <img src={promo?.backgroundImage} alt={promo?.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -51,14 +47,14 @@ function Main(props: MainProps) {
         <div className="film-card__wrap">
           <div className="film-card__info">
             <div className="film-card__poster">
-              <img src={props.promo.posterImagePath} alt={`${props.promo.title} poster`} width="218" height="327"/>
+              <img src={promo?.posterImage} alt={`${promo?.name ?? ''} poster`} width="218" height="327"/>
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">{props.promo.title}</h2>
+              <h2 className="film-card__title">{promo?.name}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">{props.promo.genre}</span>
-                <span className="film-card__year">{props.promo.year}</span>
+                <span className="film-card__genre">{promo?.genre}</span>
+                <span className="film-card__year">{promo?.released}</span>
               </p>
 
               <div className="film-card__buttons">
