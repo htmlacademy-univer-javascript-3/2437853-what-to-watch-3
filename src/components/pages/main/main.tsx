@@ -1,25 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import FilmList from '../../common/film-list/film-list';
 import GenreList from '../../common/genre-list/genre-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
-import {getFilms, setFilmsCount} from '../../../store/action';
 import {useDispatch} from 'react-redux';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import Spinner from '../../common/spinner/spinner';
 import UserBlock from '../../common/user-block/user-block';
+import Film from '../../../types/film';
+import {selectFilms, selectGenre, selectPromo} from '../../../store/general/general-store.selectors';
+import {ALL_GENRES} from '../../../const';
+
+function filterFilms(films: Film[], genre: string) {
+  return genre === ALL_GENRES ? films : films.filter((film) => film.genre === genre);
+}
 
 function Main() {
 
-  const selectedGenre = useAppSelector((state) => state.genre);
-  const promo = useAppSelector((state) => state.promo);
-  const filmsCount = useAppSelector((state) => state.filmsCount);
-  const films = useAppSelector((state) => state.filteredFilms);
-  const allFilms = useAppSelector((state) => state.allFilms);
+  const selectedGenre = useAppSelector(selectGenre);
+  const allFilms = useAppSelector(selectFilms);
+  const promo = useAppSelector(selectPromo);
+  const [filmsCount,setFilmsCount] = useState(8);
+  const films = useMemo(() => filterFilms(allFilms, selectedGenre), [allFilms, selectedGenre]);
   const dispatch = useDispatch();
 
+  const showMore = useCallback((count: number) => setFilmsCount(count + 8), []);
+
   useEffect(() => {
-    dispatch(setFilmsCount(8));
-    dispatch(getFilms());
+    setFilmsCount(8);
   }, [selectedGenre, allFilms, dispatch]);
 
   return (
@@ -83,9 +90,9 @@ function Main() {
 
           <GenreList currentGenre={selectedGenre}/>
 
-          <FilmList films={films}/>
+          <FilmList films={films} filmsCount={filmsCount}/>
 
-          {filmsCount < films.length ? <ShowMoreButton/> : null}
+          {filmsCount < films.length ? <ShowMoreButton onClick={() => showMore(filmsCount)}/> : null}
         </section>
 
         <footer className="page-footer">

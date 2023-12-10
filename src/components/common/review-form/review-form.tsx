@@ -44,8 +44,9 @@ function ReviewForm({filmId}: ReviewFormProps) {
         className="add-review__form"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(commentPost({filmId, commentRequest: state}));
-          navigate(`/films/${filmId}`);
+          dispatch(commentPost({filmId, commentRequest: state}))
+            .unwrap()
+            .then(() => navigate(`/films/${filmId}`));
         }}
       >
         <div className="rating">

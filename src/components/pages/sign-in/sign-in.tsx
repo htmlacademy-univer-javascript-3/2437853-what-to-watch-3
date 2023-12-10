@@ -2,9 +2,10 @@ import {Link, Navigate} from 'react-router-dom';
 import {useAppSelector} from '../../../hooks/use-app-selector';
 import {AuthStatus} from '../../../types/auth-status';
 import SignInForm from './sign-in-form';
+import {selectAuthStatus} from '../../../store/user/user-store.selectors';
 
 function SignIn() {
-  const authStatus = useAppSelector((state) => state.authorizationStatus);
+  const authStatus = useAppSelector(selectAuthStatus);
 
   return authStatus === AuthStatus.Authorized
     ? (<Navigate to='/'/>)

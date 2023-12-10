@@ -8,12 +8,14 @@ import {fetchComments, fetchSimilar} from '../../../store/api-action';
 import NotFound from '../not-found/not-found';
 import UserBlock from '../../common/user-block/user-block';
 import {AuthStatus} from '../../../types/auth-status';
+import {selectSimilar} from '../../../store/film/film-store.selectors';
+import {selectAuthStatus} from '../../../store/user/user-store.selectors';
 
 
 function Film() {
   const dispatch = useAppDispatch();
   const {film, id} = useFilm();
-  const authStatus = useAppSelector((state) => state.authorizationStatus);
+  const authStatus = useAppSelector(selectAuthStatus);
 
   useEffect(() => {
     if (id) {
@@ -21,7 +23,7 @@ function Film() {
       dispatch(fetchComments(id));
     }
   }, [dispatch, id]);
-  const films = useAppSelector((state) => state.similarFilms);
+  const films = useAppSelector(selectSimilar);
 
   if (!film) {
     return <NotFound/>;

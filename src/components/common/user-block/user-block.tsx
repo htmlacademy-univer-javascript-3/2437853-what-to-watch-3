@@ -1,12 +1,12 @@
 import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import {AuthStatus} from '../../../types/auth-status';
 import {Link} from 'react-router-dom';
-import {setAuthStatus, setUser} from '../../../store/action';
-import {removeToken} from '../../../api/token';
+import {selectAuthStatus, selectUser} from '../../../store/user/user-store.selectors';
+import {logout} from '../../../store/api-action';
 
 function UserBlock() {
-  const status = useAppSelector((state) => state.authorizationStatus);
-  const user = useAppSelector((state) => state.userInfo);
+  const status = useAppSelector(selectAuthStatus);
+  const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   return status === AuthStatus.Authorized ? (
     <ul className="user-block">
@@ -23,9 +23,7 @@ function UserBlock() {
             border: 'none'
           }}
           onClick={() => {
-            dispatch(setAuthStatus(AuthStatus.NoAuthorized));
-            dispatch(setUser(null));
-            removeToken();
+            dispatch(logout());
           }}
         >Sign out
         </button>

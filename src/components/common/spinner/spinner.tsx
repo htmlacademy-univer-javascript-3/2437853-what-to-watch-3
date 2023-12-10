@@ -1,7 +1,8 @@
 import {useAppSelector} from '../../../hooks/use-app-selector';
+import {selectLoadingStatus} from '../../../store/general/general-store.selectors';
 
 function Spinner() {
-  const loading = useAppSelector((state) => state.loading);
+  const loading = useAppSelector(selectLoadingStatus);
 
   return loading ? (
     <div

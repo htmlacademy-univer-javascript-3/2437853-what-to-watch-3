@@ -1,6 +1,7 @@
 import {loginPost} from '../../../store/api-action';
 import {FormEvent, useState} from 'react';
-import {useAppDispatch} from '../../../hooks/use-app-selector';
+import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
+import {selectAuthError} from '../../../store/user/user-store.selectors';
 
 const emailFilter = new RegExp('\\w+@\\w+\\.(?:com|net|ru|tv|org)');
 const passwordFilter = new RegExp('(?=.*[A-Za-z])(?=.*\\d)\\w+');
@@ -20,7 +21,7 @@ function SignInForm() {
     password: '',
   });
 
-  const message = '0';
+  const error = useAppSelector(selectAuthError);
 
   const handleFieldChange = (evt: FormEvent<HTMLInputElement>) => {
     const {name, value} = evt.currentTarget;
@@ -49,10 +50,10 @@ function SignInForm() {
           dispatch(loginPost(data));
         }}
       >
-        {message ? (
+        {error?.errorType ? (
           <div className="sign-in__message">
             {/*<p>Please enter a valid email address</p>*/}
-            <p>{message}</p>
+            <p>{error.details.map((detail) => (<p>{detail.messages.map((message) => (<p>{message}</p>))}</p>))}</p>
           </div>
         ) : null}
         <div className="sign-in__fields">

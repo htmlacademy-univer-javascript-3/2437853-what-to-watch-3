@@ -1,4 +1,9 @@
 export type ErrorDetailsMessage = {
-  type: string;
+  errorType: string;
   message: string;
+  details: {
+    property: string;
+    value: string;
+    messages: string[];
+  }[];
 };
