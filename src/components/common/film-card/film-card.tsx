@@ -6,31 +6,28 @@ import {PREVIEW_DELAY} from '../../../const';
 
 type FilmCardProps = {
   film: Film;
-
-  selected: boolean;
-  onMouseEnter: React.MouseEventHandler<HTMLElement>;
-  onMouseLeave: React.MouseEventHandler<HTMLElement>;
 }
 
 function FilmCard(props: FilmCardProps) {
   const [showPreview, setShowPreview] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if(props.selected) {
+    if(isHovered) {
       const timer = setTimeout(() => setShowPreview(true), PREVIEW_DELAY);
       return () => clearTimeout(timer);
     } else {
       setShowPreview(false);
     }
-  }, [showPreview, props.selected]);
+  }, [showPreview, isHovered]);
 
   return (
     <article
       className="small-film-card catalog__films-card"
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {props.selected && showPreview
+      {isHovered && showPreview
         ? (
           <Player autoPlay muted videoLink={props.film.videoLink}/>
         )
