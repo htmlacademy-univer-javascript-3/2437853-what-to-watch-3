@@ -1,7 +1,6 @@
 import {loginPost} from '../../../store/api-action';
 import {FormEvent, useState} from 'react';
-import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
-import {selectAuthError} from '../../../store/user/user-store.selectors';
+import {useAppDispatch} from '../../../hooks/use-app-selector';
 
 const emailFilter = new RegExp('\\w+@\\w+\\.(?:com|net|ru|tv|org)');
 const passwordFilter = new RegExp('(?=.*[A-Za-z])(?=.*\\d)\\w+');
@@ -21,17 +20,23 @@ function SignInForm() {
     password: '',
   });
 
-  const error = useAppSelector(selectAuthError);
+  const [message, setMessage] = useState('');
 
   const handleFieldChange = (evt: FormEvent<HTMLInputElement>) => {
     const {name, value} = evt.currentTarget;
     switch (name) {
       case 'email':
         if (!validateEmail(value)) {
+          setMessage('Please enter a valid email address');
+        } else {
+          setMessage('');
         }
         break;
       case 'password':
         if (!validatePassword(value)) {
+          setMessage('Password should contain at least one letter and one digit');
+        } else {
+          setMessage('');
         }
         break;
     }
@@ -47,13 +52,14 @@ function SignInForm() {
         onSubmit={(e) => {
           e.preventDefault();
           const data: { email: string; password: string } = formData;
-          dispatch(loginPost(data));
+          if (validateEmail(data.email) && validatePassword(data.password)) {
+            dispatch(loginPost(data));
+          }
         }}
       >
-        {error?.errorType ? (
+        {message ? (
           <div className="sign-in__message">
-            {/*<p>Please enter a valid email address</p>*/}
-            <p>{error.details.map((detail) => (<p>{detail.messages.map((message) => (<p>{message}</p>))}</p>))}</p>
+            <p>{message}</p>
           </div>
         ) : null}
         <div className="sign-in__fields">
