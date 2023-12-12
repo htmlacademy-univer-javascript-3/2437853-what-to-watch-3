@@ -2,9 +2,10 @@ import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
 import {useAppSelector} from '../../../hooks/use-app-selector';
 import UserBlock from '../../common/user-block/user-block';
+import {selectFilms} from '../../../store/general/general-store.selectors';
 
 function MyList() {
-  const allFilms = useAppSelector((state) => state.allFilms);
+  const allFilms = useAppSelector(selectFilms);
   const films = allFilms.filter((film) => film.isFavorite);
 
   return (

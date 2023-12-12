@@ -1,7 +1,9 @@
 import {useDispatch} from 'react-redux';
-import {changeGenre, getGenres} from '../../../store/action';
 import {useAppSelector} from '../../../hooks/use-app-selector';
-import {useEffect} from 'react';
+import {useMemo} from 'react';
+import {ALL_GENRES} from '../../../const';
+import {changeGenre} from '../../../store/general/general-store.slice';
+import {selectFilms} from '../../../store/general/general-store.selectors';
 
 type GenreListProps = {
   currentGenre: string;
@@ -9,13 +11,9 @@ type GenreListProps = {
 
 function GenreList(props: GenreListProps) {
   const dispatch = useDispatch();
-  const allFilms = useAppSelector((state) => state.allFilms);
+  const allFilms = useAppSelector(selectFilms);
+  const genres = useMemo(() => [ALL_GENRES, ...new Set(allFilms.map((film) => film.genre))], [allFilms]);
 
-  useEffect(() => {
-    dispatch(getGenres());
-  }, [dispatch, allFilms]);
-
-  const genres = useAppSelector((state) => state.genres);
   return (
     <ul className="catalog__genres-list">
       {genres.map((genre) => (

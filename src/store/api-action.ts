@@ -1,129 +1,132 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {State} from '../types/state';
-import {AxiosInstance} from 'axios';
+import {AxiosError, AxiosInstance} from 'axios';
 import Film from '../types/film';
-import {
-  setAuthStatus,
-  setComments,
-  setCurrentFilm,
-  setFilms,
-  setLoadingStatus, setPromo,
-  setSimilarFilms,
-  setUser
-} from './action';
 import {AppDispatch} from '../hooks/use-app-selector';
-import {AuthStatus} from '../types/auth-status';
-import {AuthInfo} from '../types/user-info';
-import {setToken} from '../api/token';
+import {AuthInfo, UserInfo} from '../types/user-info';
+import {removeToken, setToken} from '../api/token';
 import Comment from '../types/comment';
 import Promo from '../types/promo';
+import {ErrorDetailsMessage} from '../types/error-details-message';
 
 
-export const fetchFilms = createAsyncThunk<void, undefined, {
+export const fetchFilms = createAsyncThunk<Film[], undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchFilms',
-  async (_arg, {dispatch, extra:api}) => {
-    dispatch(setLoadingStatus(true));
+  async (_arg, {extra: api}) => {
     const {data} = await api.get<Film[]>('/films');
-    dispatch(setLoadingStatus(false));
-    dispatch(setFilms(data));
+    return data;
   }
 );
 
-export const fetchPromo = createAsyncThunk<void, undefined, {
+export const fetchPromo = createAsyncThunk<Promo, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchPromo',
-  async (_arg, {dispatch, extra:api}) => {
-    dispatch(setLoadingStatus(true));
+  async (_arg, {extra: api}) => {
     const {data} = await api.get<Promo>('/promo');
-    dispatch(setLoadingStatus(false));
-    dispatch(setPromo(data));
+    return data;
   }
 );
 
-export const fetchFilm = createAsyncThunk<void, string, {
+export const fetchFilm = createAsyncThunk<Film, string, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchFilm',
-  async (id, {dispatch, extra:api}) => {
-    dispatch(setLoadingStatus(true));
+  async (id, {extra: api}) => {
     const {data} = await api.get<Film>(`/films/${id}`);
-    dispatch(setLoadingStatus(false));
-    dispatch(setCurrentFilm(data));
+    return data;
   }
 );
 
-export const fetchSimilar = createAsyncThunk<void, string, {
+export const fetchSimilar = createAsyncThunk<Film[], string, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchSimilar',
-  async (id, {dispatch, extra:api}) => {
-    dispatch(setLoadingStatus(true));
+  async (id, {extra: api}) => {
     const {data} = await api.get<Film[]>(`/films/${id}/similar`);
-    dispatch(setLoadingStatus(false));
-    dispatch(setSimilarFilms(data));
+    return data;
   }
 );
 
-export const fetchComments = createAsyncThunk<void, string, {
+export const fetchComments = createAsyncThunk<Comment[], string, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchComments',
-  async (id, {dispatch, extra:api}) => {
-    dispatch(setLoadingStatus(true));
+  async (id, {extra: api}) => {
     const {data} = await api.get<Comment[]>(`/comments/${id}`);
-    dispatch(setLoadingStatus(false));
-    dispatch(setComments(data));
+    return data;
   }
 );
 
-export const loginGet = createAsyncThunk<void, undefined,{
+export const loginGet = createAsyncThunk<UserInfo, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
+  rejectValue: ErrorDetailsMessage;
 }>(
   'loginGet',
-  async (_, {dispatch, extra:api}) => {
-    const {data} = await api.get<AuthInfo>('/login');
-    dispatch(setAuthStatus(AuthStatus.Authorized));
-    dispatch(setUser(data));
-    setToken(data.token);
+  async (_, {extra: api, rejectWithValue}) => {
+    try {
+      const {data} = await api.get<AuthInfo>('/login');
+      return data;
+    } catch (e) {
+      const err = e as AxiosError<ErrorDetailsMessage>;
+      throw rejectWithValue(err.response!.data);
+    }
   }
 );
 
-export const loginPost = createAsyncThunk<void, {email: string; password: string}, {
+export const loginPost = createAsyncThunk<UserInfo, { email: string; password: string }, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+  rejectValue: ErrorDetailsMessage;
+}>(
+  'loginPost',
+  async (loginInfo, {extra: api, rejectWithValue}) => {
+    try {
+
+      const {data} = await api.post<AuthInfo>('/login', loginInfo);
+      setToken(data.token);
+      return data;
+    } catch (e) {
+      const err = e as AxiosError<ErrorDetailsMessage>;
+      throw rejectWithValue(err.response!.data);
+    }
+  }
+);
+
+export const logout = createAsyncThunk<void, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
-  'loginPost',
-  async (loginInfo, {dispatch, extra:api}) => {
-    const {data} = await api.post<AuthInfo>('/login', loginInfo);
-    dispatch(setAuthStatus(AuthStatus.Authorized));
-    dispatch(setUser(data));
-    setToken(data.token);
+  'logout',
+  async (_, {extra: api}) => {
+    await api.delete('/logout');
+    removeToken();
   }
 );
 
-export const commentPost = createAsyncThunk<void, {filmId: string; commentRequest:{comment: string; rating: number}}, {
+export const commentPost = createAsyncThunk<void, { filmId: string; commentRequest: { comment: string; rating: number } }, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'commentPost',
-  async ({filmId, commentRequest}, {extra:api}) => {
+  async ({filmId, commentRequest}, {extra: api}) => {
     await api.post(`/comments/${filmId}`, commentRequest);
   }
 );

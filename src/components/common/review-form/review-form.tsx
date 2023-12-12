@@ -18,7 +18,7 @@ function RatingStar(props: RatingStarProps) {
         type="radio"
         name="rating"
         checked={props.score === props.state.rating}
-        onChange ={() => {
+        onChange={() => {
           props.setState({
             ...props.state,
             rating: props.score
@@ -34,13 +34,21 @@ type ReviewFormProps = {
   filmId: string;
 };
 
-function ReviewForm({filmId} : ReviewFormProps) {
+function ReviewForm({filmId}: ReviewFormProps) {
   const [state, setState] = useState({rating: 0, comment: ''});
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   return (
     <div className="add-review">
-      <form action="#" className="add-review__form">
+      <form
+        className="add-review__form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(commentPost({filmId, commentRequest: state}))
+            .unwrap()
+            .then(() => navigate(`/films/${filmId}`));
+        }}
+      >
         <div className="rating">
           <div className="rating__stars">
             <RatingStar state={state} setState={setState} score={10}/>
@@ -71,11 +79,7 @@ function ReviewForm({filmId} : ReviewFormProps) {
           <div className="add-review__submit">
             <button
               className="add-review__btn"
-              type="button"
-              onClick={() => {
-                dispatch(commentPost({filmId, commentRequest:state}));
-                navigate(`/films/${filmId}`);
-              }}
+              type="submit"
             >
               Post
             </button>

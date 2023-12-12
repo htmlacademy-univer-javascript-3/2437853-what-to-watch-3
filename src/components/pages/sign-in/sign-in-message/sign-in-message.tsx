@@ -52,4 +52,3 @@ function SignInMessage() {
   );
 }
 
-export default SignInMessage;

@@ -2,6 +2,7 @@ import {useParams} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from './use-app-selector';
 import {fetchFilm} from '../store/api-action';
 import {useEffect} from 'react';
+import {selectFilm} from '../store/film/film-store.selectors';
 
 export const useFilm = () => {
   const {id} = useParams();
@@ -11,6 +12,6 @@ export const useFilm = () => {
       dispatch(fetchFilm(id));
     }
   }, [dispatch, id]);
-  const film = useAppSelector((state) => state.currentFilm);
+  const film = useAppSelector(selectFilm);
   return {film, id};
 };

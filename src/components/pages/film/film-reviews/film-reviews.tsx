@@ -1,5 +1,6 @@
 import Comment from '../../../../types/comment';
 import {useAppSelector} from '../../../../hooks/use-app-selector';
+import {selectComments} from "../../../../store/film/film-store.selectors";
 
 type ReviewCardProps = {
   review: Comment;
@@ -31,7 +32,7 @@ function ReviewCard({review}: ReviewCardProps) {
 }
 
 function FilmReviews() {
-  const comments = useAppSelector((state) => state.comments);
+  const comments = useAppSelector(selectComments);
   const comments1 = comments.slice(0, comments.length / 2 + 1);
   const comments2 = comments.slice(comments.length / 2 + 1);
   return (
