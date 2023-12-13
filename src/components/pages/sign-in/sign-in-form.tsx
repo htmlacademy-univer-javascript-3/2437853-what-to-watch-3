@@ -1,4 +1,4 @@
-import {loginPost} from '../../../store/api-action';
+import {fetchFavorite, loginPost} from '../../../store/api-action';
 import {FormEvent, useState} from 'react';
 import {useAppDispatch} from '../../../hooks/use-app-selector';
 
@@ -53,7 +53,7 @@ function SignInForm() {
           e.preventDefault();
           const data: { email: string; password: string } = formData;
           if (validateEmail(data.email) && validatePassword(data.password)) {
-            dispatch(loginPost(data));
+            dispatch(loginPost(data)).unwrap().then(() => dispatch(fetchFavorite()));
           }
         }}
       >

@@ -10,6 +10,8 @@ import UserBlock from '../../common/user-block/user-block';
 import {AuthStatus} from '../../../types/auth-status';
 import {selectSimilar} from '../../../store/film/film-store.selectors';
 import {selectAuthStatus} from '../../../store/user/user-store.selectors';
+import PlayButton from '../../common/buttons/play-button/play-button';
+import MyListButton from '../../common/buttons/my-list-button/my-list-button';
 
 
 function Film() {
@@ -60,20 +62,8 @@ function Film() {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  {/*todo*/}
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref={film.isFavorite ? '#in-list' : '#add'}></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                <PlayButton filmId={film.id}/>
+                <MyListButton filmId={film.id} isFavorite={film.isFavorite}/>
                 {
                   authStatus === AuthStatus.Authorized
                     ? (<Link to={`/films/${film.id}/review`} className="btn film-card__button">Add review</Link>)

@@ -19,6 +19,11 @@ export const generalSlice = createSlice({
   reducers: {
     changeGenre: (state, action: PayloadAction<string>) => {
       state.genre = action.payload;
+    },
+    changePromoFavorite: (state, action: PayloadAction<boolean>) => {
+      if (state.promo) {
+        state.promo.isFavorite = action.payload;
+      }
     }
   },
   extraReducers: (builder) => {
@@ -42,4 +47,4 @@ export const generalSlice = createSlice({
   }
 });
 
-export const {changeGenre} = generalSlice.actions;
+export const {changeGenre, changePromoFavorite} = generalSlice.actions;
