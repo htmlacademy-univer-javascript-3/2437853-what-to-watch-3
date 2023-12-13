@@ -4,7 +4,7 @@ import {Slices} from '../types/slices';
 import {userSlice} from './user/user-store.slice';
 import {filmSlice} from './film/film-store.slice';
 import {generalSlice} from './general/general-store.slice';
-import {fovoriteSlice} from "./favorite/favorite-store.slice";
+import {fovoriteSlice} from './favorite/favorite-store.slice';
 
 export const reducer = combineReducers({
   [Slices.User]: userSlice.reducer,
