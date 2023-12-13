@@ -1,12 +1,18 @@
 import {Link} from 'react-router-dom';
 import FilmList from '../../common/film-list/film-list';
-import {useAppSelector} from '../../../hooks/use-app-selector';
+import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import UserBlock from '../../common/user-block/user-block';
-import {selectFilms} from '../../../store/general/general-store.selectors';
+import {useEffect} from 'react';
+import {selectFavoriteCount, selectFavoriteFilms} from '../../../store/favorite/favorite-store.selectors';
+import {fetchFavorite} from '../../../store/api-action';
 
 function MyList() {
-  const allFilms = useAppSelector(selectFilms);
-  const films = allFilms.filter((film) => film.isFavorite);
+  const dispatch = useAppDispatch();
+  const favoriteFilms = useAppSelector(selectFavoriteFilms);
+  const favoriteCount = useAppSelector(selectFavoriteCount);
+  useEffect(() => {
+    dispatch(fetchFavorite());
+  });
 
   return (
     <div className="user-page">
@@ -19,14 +25,14 @@ function MyList() {
           </Link>
         </div>
 
-        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">9</span></h1>
+        <h1 className="page-title user-page__title">My list <span className="user-page__film-count">{favoriteCount}</span></h1>
         <UserBlock/>
       </header>
 
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmList films={films}/>
+        <FilmList films={favoriteFilms}/>
       </section>
 
       <footer className="page-footer">
