@@ -9,7 +9,6 @@ function Player() {
   const navigate = useNavigate();
   const [state, setState] = useState({
     isPlaying: false,
-    isFullscreen: false,
     elapsed: 0,
   });
 
@@ -24,13 +23,7 @@ function Player() {
   };
 
   const handleFullscreen = () => {
-    if (state.isFullscreen) {
-      document.exitFullscreen();
-      setState({...state, isFullscreen: false});
-    } else {
-      videoRef.current?.requestFullscreen();
-      setState({...state, isFullscreen: true});
-    }
+    videoRef.current?.requestFullscreen();
   };
 
   const toTimeLabel = (seconds: number) => {
@@ -52,13 +45,13 @@ function Player() {
       }
     }, 500);
     return () => clearInterval(interval);
-  }, [state.isPlaying, state.isFullscreen]);
+  }, [state.isPlaying]);
 
   if (!film) {
     return <NotFound/>;
   }
   return (
-    <div className="player">
+    <div className="player" data-testid="player">
       <video
         src={film.videoLink}
         ref={videoRef}
@@ -90,10 +83,22 @@ function Player() {
 
         <div className="player__controls-row">
           <button type="button" className="player__play" onClick={handlePlay}>
-            <svg viewBox="0 0 19 19" width="19" height="19">
-              <use xlinkHref="#play-s"></use>
-            </svg>
-            <span>Play</span>
+            {state.isPlaying
+              ? (
+                <>
+                  <svg viewBox="0 0 19 19" width="19" height="19">
+                    <use xlinkHref="#play-s"></use>
+                  </svg>
+                  <span>Play</span>
+                </>)
+              : (
+                <>
+                  <svg viewBox="0 0 14 21" width="14" height="21">
+                    <use xlinkHref="#pause"></use>
+                  </svg>
+                  <span>Pause</span>
+                </>)}
+
           </button>
           <div className="player__name">Transpotting</div>
 

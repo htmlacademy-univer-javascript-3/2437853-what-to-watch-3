@@ -4,6 +4,8 @@ import App from './components/app/app';
 import {Provider} from 'react-redux';
 import {store} from './store';
 import {fetchFavorite, fetchFilms, fetchPromo, loginGet} from './store/api-action';
+import HistoryRouter from './components/common/history-router/history-router';
+import browserHistory from './browser-history';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,12 +13,14 @@ const root = ReactDOM.createRoot(
 
 store.dispatch(fetchFilms());
 store.dispatch(fetchPromo());
-store.dispatch(loginGet()).unwrap().then(()=>store.dispatch(fetchFavorite()));
+store.dispatch(loginGet()).unwrap().then(() => store.dispatch(fetchFavorite()));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      <HistoryRouter history={browserHistory}>
+        <App/>
+      </HistoryRouter>
     </Provider>
   </React.StrictMode>
 );

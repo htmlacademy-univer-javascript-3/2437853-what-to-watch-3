@@ -5,6 +5,7 @@ import {SerializedError} from '@reduxjs/toolkit';
 import Promo from './promo';
 import {AuthStatus} from './auth-status';
 import {UserInfo} from './user-info';
+import {ErrorDetailsMessage} from './error-details-message';
 
 export type FilmStore = {
   film: Film | null;
@@ -26,7 +27,7 @@ export type UserState = {
   authorizationStatus: AuthStatus;
 
   user: UserInfo | null;
-  error: SerializedError | null;
+  error: ErrorDetailsMessage | null;
 };
 
 export type FavoriteState = {

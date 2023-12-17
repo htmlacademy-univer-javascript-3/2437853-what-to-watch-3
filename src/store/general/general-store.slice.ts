@@ -43,6 +43,16 @@ export const generalSlice = createSlice({
       .addCase(fetchPromo.fulfilled, (state, action) => {
         state.dataLoading = false;
         state.promo = action.payload;
+      })
+      .addCase(fetchFilms.rejected, (state, action) => {
+        state.dataLoading = false;
+        state.films = [];
+        state.error = action.error;
+      })
+      .addCase(fetchPromo.rejected, (state, action) => {
+        state.dataLoading = false;
+        state.promo = null;
+        state.error = action.error;
       });
   }
 });
