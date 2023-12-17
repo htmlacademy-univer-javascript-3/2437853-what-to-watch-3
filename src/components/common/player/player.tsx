@@ -10,6 +10,7 @@ function Player(props: PlayerProps) {
       src={props.videoLink} width="280" height="175"
       autoPlay={props.autoPlay}
       muted={props.muted}
+      data-testid="player"
     >
     </video>
   );

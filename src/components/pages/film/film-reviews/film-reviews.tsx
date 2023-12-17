@@ -17,7 +17,7 @@ function formatDate(date: Date) {
 
 function ReviewCard({review}: ReviewCardProps) {
   return (
-    <div key={review.id} className="review">
+    <div key={review.id} className="review" data-testid="reviewCard">
       <blockquote className="review__quote">
         <p className="review__text">{review.comment}</p>
 

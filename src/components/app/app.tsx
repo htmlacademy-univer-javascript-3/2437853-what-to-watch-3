@@ -7,14 +7,17 @@ import AddReview from '../pages/add-review/add-review';
 import Player from '../pages/player/player';
 import NotFound from '../pages/not-found/not-found';
 import PrivateRoute from '../common/private-route/private-route';
+import {useAppSelector} from '../../hooks/use-app-selector';
+import {selectAuthStatus} from '../../store/user/user-store.selectors';
 
 function App() {
+  const authStatus = useAppSelector(selectAuthStatus);
   return (
     <Routes>
       <Route path="/" element={<Main/>}/>
       <Route path="/login" element={<SignIn/>}/>
       <Route path="/mylist" element={
-        <PrivateRoute>
+        <PrivateRoute authStatus={authStatus}>
           <MyList/>
         </PrivateRoute>
       }
