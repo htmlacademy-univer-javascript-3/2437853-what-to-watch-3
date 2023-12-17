@@ -16,7 +16,7 @@ import {
   loginGet
 } from './api-action';
 import {favoriteFilms, film, films, similarFilms} from '../mocks/films';
-import {comments} from "../mocks/comments";
+import {comments} from '../mocks/comments';
 
 describe('Async actions', () => {
   const axios = createApi();
