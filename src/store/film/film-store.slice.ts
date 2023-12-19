@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {fetchComments, fetchFilm, fetchSimilar} from '../api-action';
+import {changeFavorite, fetchComments, fetchFilm, fetchSimilar} from '../api-action';
 import {Slices} from '../../types/slices';
 import {FilmStore} from '../../types/state';
 
@@ -56,6 +56,9 @@ export const filmSlice = createSlice({
         state.dataLoading = false;
         state.comments = [];
         state.error = action.error;
+      })
+      .addCase(changeFavorite.fulfilled, (state, action) => {
+        state.film = action.payload;
       });
   }
 });

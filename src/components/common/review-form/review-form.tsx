@@ -38,15 +38,20 @@ function ReviewForm({filmId}: ReviewFormProps) {
   const [state, setState] = useState({rating: 0, comment: ''});
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const [message, setMessage] = useState('');
+
   return (
     <div className="add-review">
+      {message ? (<p>{message}</p>) : null}
       <form
         className="add-review__form"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(commentPost({filmId, commentRequest: state}))
-            .unwrap()
-            .then(() => navigate(`/films/${filmId}`));
+          if (state.rating > 0 && state.comment.length >= 50) {
+            dispatch(commentPost({filmId, commentRequest: state}))
+              .unwrap()
+              .then(() => navigate(`/films/${filmId}`));
+          }
         }}
       >
         <div className="rating">
@@ -71,10 +76,17 @@ function ReviewForm({filmId}: ReviewFormProps) {
             id="review-text"
             placeholder="Review text"
             value={state.comment}
-            onChange={(e) => setState({
-              ...state,
-              comment: e.target.value
-            })}
+            onChange={(e) => {
+              if (e.target.value.length < 50) {
+                setMessage('Comment should contain at least 50 characters');
+              } else {
+                setMessage('');
+              }
+              setState({
+                ...state,
+                comment: e.target.value
+              });
+            }}
           />
           <div className="add-review__submit">
             <button

@@ -1,14 +1,16 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import FilmList from '../../common/film-list/film-list';
 import GenreList from '../../common/genre-list/genre-list';
-import {useAppSelector} from '../../../hooks/use-app-selector';
-import {useDispatch} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import Spinner from '../../common/spinner/spinner';
 import UserBlock from '../../common/user-block/user-block';
 import Film from '../../../types/film';
 import {selectFilms, selectGenre, selectPromo} from '../../../store/general/general-store.selectors';
 import {ALL_GENRES} from '../../../const';
+import PlayButton from '../../common/buttons/play-button/play-button';
+import MyListButton from '../../common/buttons/my-list-button/my-list-button';
+import {changePromoFavorite} from '../../../store/general/general-store.slice';
 
 function filterFilms(films: Film[], genre: string) {
   return genre === ALL_GENRES ? films : films.filter((film) => film.genre === genre);
@@ -19,9 +21,9 @@ function Main() {
   const selectedGenre = useAppSelector(selectGenre);
   const allFilms = useAppSelector(selectFilms);
   const promo = useAppSelector(selectPromo);
-  const [filmsCount,setFilmsCount] = useState(8);
+  const [filmsCount, setFilmsCount] = useState(8);
   const films = useMemo(() => filterFilms(allFilms, selectedGenre), [allFilms, selectedGenre]);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const showMore = useCallback((count: number) => setFilmsCount(count + 8), []);
 
@@ -65,19 +67,15 @@ function Main() {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                {promo ? <PlayButton filmId={promo?.id}/> : null}
+                {promo ?
+                  <MyListButton
+                    filmId={promo?.id}
+                    isFavorite={promo.isFavorite}
+                    onClickAfter={(toggle) => {
+                      dispatch(changePromoFavorite(!toggle));
+                    }}
+                  /> : null}
               </div>
             </div>
           </div>

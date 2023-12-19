@@ -70,6 +70,31 @@ export const fetchComments = createAsyncThunk<Comment[], string, {
   }
 );
 
+
+export const changeFavorite = createAsyncThunk<Film, { filmId: string; status: number }, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'changeFavorite',
+  async ({filmId, status}, {extra: api}) => {
+    const {data} = await api.post<Film>(`/favorite/${filmId}/${status}`);
+    return data;
+  }
+);
+
+export const fetchFavorite = createAsyncThunk<Film[], undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'fetchFavorite',
+  async (_, {extra: api}) => {
+    const {data} = await api.get<Film[]>('/favorite');
+    return data;
+  }
+);
+
 export const loginGet = createAsyncThunk<UserInfo, undefined, {
   dispatch: AppDispatch;
   state: State;
@@ -97,7 +122,6 @@ export const loginPost = createAsyncThunk<UserInfo, { email: string; password: s
   'loginPost',
   async (loginInfo, {extra: api, rejectWithValue}) => {
     try {
-
       const {data} = await api.post<AuthInfo>('/login', loginInfo);
       setToken(data.token);
       return data;

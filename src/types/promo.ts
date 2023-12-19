@@ -5,7 +5,7 @@ type Promo = {
   posterImage: string;
   genre: string;
   released: number;
-  isFavourite: boolean;
+  isFavorite: boolean;
   videoLink: string;
 }
 

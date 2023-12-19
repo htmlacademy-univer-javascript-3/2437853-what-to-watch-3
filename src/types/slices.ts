@@ -1,5 +1,6 @@
 export enum Slices{
   Film = 'Film',
   User = 'User',
-  General = 'General'
+  General = 'General',
+  Favorite = 'Favorite'
 }

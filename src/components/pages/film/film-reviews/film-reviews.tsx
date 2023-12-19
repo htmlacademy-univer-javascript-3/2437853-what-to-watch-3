@@ -1,6 +1,6 @@
 import Comment from '../../../../types/comment';
 import {useAppSelector} from '../../../../hooks/use-app-selector';
-import {selectComments} from "../../../../store/film/film-store.selectors";
+import {selectComments} from '../../../../store/film/film-store.selectors';
 
 type ReviewCardProps = {
   review: Comment;
