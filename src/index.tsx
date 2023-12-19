@@ -6,6 +6,8 @@ import {store} from './store';
 import {fetchFavorite, fetchFilms, fetchPromo, loginGet} from './store/api-action';
 import HistoryRouter from './components/common/history-router/history-router';
 import browserHistory from './browser-history';
+import ErrorMessage from './components/common/error-message/error-message';
+import Spinner from './components/common/spinner/spinner';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,6 +21,8 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <HistoryRouter history={browserHistory}>
+        <ErrorMessage/>
+        <Spinner/>
         <App/>
       </HistoryRouter>
     </Provider>

@@ -23,7 +23,12 @@ function App() {
       }
       />
       <Route path="/films/:id" element={<Film/>}/>
-      <Route path="/films/:id/review" element={<AddReview/>}/>
+      <Route path="/films/:id/review" element={
+        <PrivateRoute authStatus={authStatus}>
+          <AddReview/>
+        </PrivateRoute>
+      }
+      />
       <Route path="/player/:id" element={<Player/>}/>
       <Route path="/not-found" element={<NotFound/>}/>
       <Route path="*" element={<NotFound/>}/>

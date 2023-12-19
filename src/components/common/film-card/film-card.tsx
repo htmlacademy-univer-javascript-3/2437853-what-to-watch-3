@@ -13,7 +13,7 @@ function FilmCard(props: FilmCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if(isHovered) {
+    if (isHovered) {
       const timer = setTimeout(() => setShowPreview(true), PREVIEW_DELAY);
       return () => clearTimeout(timer);
     } else {
@@ -34,7 +34,9 @@ function FilmCard(props: FilmCardProps) {
         : (
           <>
             <div className="small-film-card__image">
-              <img src={props.film.backgroundImage} alt={props.film.name} width="280" height="175"/>
+              <Link to={`/films/${props.film.id}`}>
+                <img src={props.film.backgroundImage} alt={props.film.name} width="280" height="175"/>
+              </Link>
             </div>
             <h3 className="small-film-card__title">
               <Link className="small-film-card__link" to={`/films/${props.film.id}`}>{props.film.name}</Link>

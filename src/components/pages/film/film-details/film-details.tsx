@@ -4,6 +4,11 @@ type FilmProps = {
   film: Film;
 }
 
+function getTime(minutes: number) {
+  const pad = (i: number) => (`00${i.toString()}`).slice(-2);
+  return `${Math.floor(minutes / 60)}:${pad(minutes % 60)}`;
+}
+
 function FilmDetails({film}: FilmProps) {
   return (
     <div className="film-card__text film-card__row">
@@ -23,7 +28,7 @@ function FilmDetails({film}: FilmProps) {
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{film.runTime}</span>
+          <span className="film-card__details-value">{getTime(film.runTime)}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>

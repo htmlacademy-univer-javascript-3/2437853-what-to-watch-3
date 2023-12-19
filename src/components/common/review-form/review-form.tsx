@@ -39,6 +39,9 @@ function ReviewForm({filmId}: ReviewFormProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
+  const [blocked, setBlocked] = useState(false);
+
+  const isStateValid = () => state.rating > 0 && state.comment.length >= 50 && state.comment.length <= 400;
 
   return (
     <div className="add-review" data-testid="form">
@@ -47,10 +50,12 @@ function ReviewForm({filmId}: ReviewFormProps) {
         className="add-review__form"
         onSubmit={(e) => {
           e.preventDefault();
-          if (state.rating > 0 && state.comment.length >= 50 && state.comment.length <= 400) {
+          if (isStateValid()) {
+            setBlocked(true);
             dispatch(commentPost({filmId, commentRequest: state}))
               .unwrap()
-              .then(() => navigate(`/films/${filmId}`));
+              .then(() => navigate(`/films/${filmId}`))
+              .finally(() => setBlocked(false));
           }
         }}
       >
@@ -77,7 +82,10 @@ function ReviewForm({filmId}: ReviewFormProps) {
             placeholder="Review text"
             value={state.comment}
             onChange={(e) => {
-              if (e.target.value.length < 50 && e.target.value.length > 400) {
+              if(blocked) {
+                return;
+              }
+              if (e.target.value.length < 50 || e.target.value.length > 400) {
                 setMessage('Comment should contain between 50 and 400 characters');
               } else {
                 setMessage('');
@@ -92,6 +100,7 @@ function ReviewForm({filmId}: ReviewFormProps) {
             <button
               className="add-review__btn"
               type="submit"
+              disabled={!isStateValid() || blocked}
             >
               Post
             </button>

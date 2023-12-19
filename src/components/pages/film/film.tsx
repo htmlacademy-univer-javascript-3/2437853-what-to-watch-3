@@ -7,11 +7,11 @@ import {useEffect} from 'react';
 import {fetchComments, fetchSimilar} from '../../../store/api-action';
 import NotFound from '../not-found/not-found';
 import UserBlock from '../../common/user-block/user-block';
-import {AuthStatus} from '../../../types/auth-status';
 import {selectSimilar} from '../../../store/film/film-store.selectors';
-import {selectAuthStatus} from '../../../store/user/user-store.selectors';
 import PlayButton from '../../common/buttons/play-button/play-button';
 import MyListButton from '../../common/buttons/my-list-button/my-list-button';
+import {AuthStatus} from '../../../types/auth-status';
+import {selectAuthStatus} from '../../../store/user/user-store.selectors';
 
 
 function Film() {

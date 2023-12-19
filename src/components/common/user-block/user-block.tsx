@@ -12,7 +12,9 @@ function UserBlock() {
     <ul className="user-block">
       <li className="user-block__item">
         <div className="user-block__avatar">
-          <img src={user?.avatarUrl} alt="User avatar" width="63" height="63"/>
+          <Link to="/mylist">
+            <img src={user?.avatarUrl} alt="User avatar" width="63" height="63"/>
+          </Link>
         </div>
       </li>
       <li className="user-block__item">
