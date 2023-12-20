@@ -5,6 +5,7 @@ import {Slices} from '../../../types/slices';
 import AddReview from './add-review';
 import {film, similarFilms} from '../../../mocks/films';
 import {comments} from '../../../mocks/comments';
+import {AuthStatus} from "../../../types/auth-status";
 
 describe('Component: AddReview page', () => {
   it('should render correctly', () => {
@@ -22,6 +23,11 @@ describe('Component: AddReview page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
+        error: null
+      },
+      [Slices.User]:{
+        user: null,
+        authorizationStatus: AuthStatus.Authorized,
         error: null
       }
     }));
