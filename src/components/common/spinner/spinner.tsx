@@ -1,12 +1,17 @@
 import {useAppSelector} from '../../../hooks/use-app-selector';
 import {selectLoadingStatus} from '../../../store/general/general-store.selectors';
+import {TailSpin} from 'react-loader-spinner';
 
 function Spinner() {
   const loading = useAppSelector(selectLoadingStatus);
 
   return loading ? (
-    <div
-      style={{
+    <TailSpin
+      visible={loading}
+      height="80"
+      width="80"
+      ariaLabel="radio-loading"
+      wrapperStyle={{
         background: '#00000080',
         width: '100vw',
         height: '100vh',
@@ -16,19 +21,8 @@ function Spinner() {
         alignItems: 'center',
         justifyContent: 'center',
       }}
-    >
-      <p
-        style={{
-          color: '#ffffff',
-          fontSize: '30pt',
-          fontFamily: 'serif',
-          fontStyle: 'italic',
-          fontWeight: '700'
-        }}
-      >
-        Loading...
-      </p>
-    </div>
+      wrapperClass="radio-wrapper"
+    />
   ) : null;
 }
 

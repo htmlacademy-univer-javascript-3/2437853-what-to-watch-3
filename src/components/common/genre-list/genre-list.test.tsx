@@ -2,7 +2,7 @@ import {describe, expect} from 'vitest';
 import {createMemoryHistory, MemoryHistory} from 'history';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {film, films} from '../../../mocks/films';
+import {film, filmsShort} from '../../../mocks/films';
 import {makeFakeStore, withHistory, withStore} from '../../../mocks/components';
 import GenreList from './genre-list';
 import {ALL_GENRES} from '../../../const';
@@ -21,7 +21,7 @@ describe('Component: GenreList', () => {
     const withHistoryComponent = withHistory(<GenreList currentGenre={ALL_GENRES}/>, mockHistory);
     const {withStoreComponent} = withStore(withHistoryComponent, makeFakeStore({
       [Slices.General]: {
-        films: films,
+        films: filmsShort,
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,
@@ -39,7 +39,7 @@ describe('Component: GenreList', () => {
     const withHistoryComponent = withHistory(<GenreList currentGenre={ALL_GENRES}/>, mockHistory);
     const {withStoreComponent, mockStore} = withStore(withHistoryComponent, makeFakeStore({
       [Slices.General]: {
-        films: films,
+        films: filmsShort,
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,

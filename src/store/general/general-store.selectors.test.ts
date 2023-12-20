@@ -1,6 +1,6 @@
 import {beforeEach, describe, expect} from 'vitest';
 import {Slices} from '../../types/slices';
-import {film, films} from '../../mocks/films';
+import {film, filmsShort} from '../../mocks/films';
 import {
   selectFilms,
   selectGenre,
@@ -14,7 +14,7 @@ import {State} from '../../types/state';
 describe('General store selectors', () => {
   const state = {
     [Slices.General]: {
-      films: films,
+      films: filmsShort,
       promo: film,
       genre: film.genre,
       dataLoading: false,

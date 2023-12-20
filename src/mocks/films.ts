@@ -1,4 +1,4 @@
-import Film from '../types/film';
+import Film, {FilmShort} from '../types/film';
 
 
 export const films: Film[] = [
@@ -664,9 +664,19 @@ export const films: Film[] = [
   },
 ];
 
-export const favoriteFilms = films.filter((film) => film.isFavorite);
+export const favoriteFilms: FilmShort[] = films.filter((film) => film.isFavorite).map((f) => ({
+  ...f,
+  previewImage: f.backgroundImage,
+  previewVideoLink: f.videoLink
+}));
 
 export const film = films[0];
-export const similarFilms = films.slice(1, 8);
+export const filmShort: FilmShort = {...film, previewImage: film.backgroundImage, previewVideoLink: film.videoLink};
+export const filmsShort: FilmShort[] = films.map((f) => ({
+  ...f,
+  previewImage: f.backgroundImage,
+  previewVideoLink: f.videoLink
+}));
+export const similarFilms = filmsShort.slice(1, 8);
 
 

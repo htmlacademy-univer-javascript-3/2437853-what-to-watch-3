@@ -1,6 +1,6 @@
 import {describe} from 'vitest';
 import {fetchFilms, fetchPromo} from '../api-action';
-import {film, films} from '../../mocks/films';
+import {film, filmsShort} from '../../mocks/films';
 import {changeGenre, changePromoFavorite, generalSlice} from './general-store.slice';
 import {ALL_GENRES} from '../../const';
 
@@ -52,14 +52,14 @@ describe('General store slice', () => {
 
     it('should return  correct state with fulfilled', () => {
       const expectedState = {
-        films: films,
+        films: filmsShort,
         promo: null,
         genre: ALL_GENRES,
         dataLoading: false,
         error: null
       };
 
-      const result = generalSlice.reducer(undefined, fetchFilms.fulfilled(films, '', undefined));
+      const result = generalSlice.reducer(undefined, fetchFilms.fulfilled(filmsShort, '', undefined));
 
       expect(result).toEqual(expectedState);
     });

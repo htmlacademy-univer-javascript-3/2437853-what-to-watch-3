@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom';
-import Film from '../../../types/film';
+import {FilmShort} from '../../../types/film';
 import {useEffect, useState} from 'react';
 import Player from '../player/player';
 import {PREVIEW_DELAY} from '../../../const';
 
 type FilmCardProps = {
-  film: Film;
+  film: FilmShort;
 }
 
 function FilmCard(props: FilmCardProps) {
@@ -29,14 +29,12 @@ function FilmCard(props: FilmCardProps) {
     >
       {isHovered && showPreview
         ? (
-          <Player autoPlay muted videoLink={props.film.videoLink}/>
+          <Player autoPlay muted videoLink={props.film.previewVideoLink}/>
         )
         : (
           <>
             <div className="small-film-card__image">
-              <Link to={`/films/${props.film.id}`}>
-                <img src={props.film.backgroundImage} alt={props.film.name} width="280" height="175"/>
-              </Link>
+              <img src={props.film.previewImage} alt={props.film.name} width="280" height="175"/>
             </div>
             <h3 className="small-film-card__title">
               <Link className="small-film-card__link" to={`/films/${props.film.id}`}>{props.film.name}</Link>

@@ -2,7 +2,7 @@ import {render, screen} from '@testing-library/react';
 import {expect} from 'vitest';
 import {makeFakeStore, withHistory, withStore} from '../../../mocks/components';
 import {Slices} from '../../../types/slices';
-import {film, films} from '../../../mocks/films';
+import {film, filmsShort} from '../../../mocks/films';
 import Main from './main';
 import {ALL_GENRES} from '../../../const';
 
@@ -10,7 +10,7 @@ describe('Component: Main page', () => {
   it('should render page correctly', () => {
     const {withStoreComponent} = withStore(withHistory(<Main/>), makeFakeStore({
       [Slices.General]: {
-        films: films,
+        films: filmsShort,
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,

@@ -1,7 +1,7 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {State} from '../types/state';
 import {AxiosError, AxiosInstance} from 'axios';
-import Film from '../types/film';
+import Film, {FilmShort} from '../types/film';
 import {AppDispatch} from '../hooks/use-app-selector';
 import {AuthInfo, UserInfo} from '../types/user-info';
 import {removeToken, setToken} from '../api/token';
@@ -10,14 +10,14 @@ import Promo from '../types/promo';
 import {ErrorDetailsMessage} from '../types/error-details-message';
 
 
-export const fetchFilms = createAsyncThunk<Film[], undefined, {
+export const fetchFilms = createAsyncThunk<FilmShort[], undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchFilms',
   async (_arg, {extra: api}) => {
-    const {data} = await api.get<Film[]>('/films');
+    const {data} = await api.get<FilmShort[]>('/films');
     return data;
   }
 );
@@ -46,14 +46,14 @@ export const fetchFilm = createAsyncThunk<Film, string, {
   }
 );
 
-export const fetchSimilar = createAsyncThunk<Film[], string, {
+export const fetchSimilar = createAsyncThunk<FilmShort[], string, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchSimilar',
   async (id, {extra: api}) => {
-    const {data} = await api.get<Film[]>(`/films/${id}/similar`);
+    const {data} = await api.get<FilmShort[]>(`/films/${id}/similar`);
     return data;
   }
 );
@@ -83,14 +83,14 @@ export const changeFavorite = createAsyncThunk<Film, { filmId: string; status: n
   }
 );
 
-export const fetchFavorite = createAsyncThunk<Film[], undefined, {
+export const fetchFavorite = createAsyncThunk<FilmShort[], undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'fetchFavorite',
   async (_, {extra: api}) => {
-    const {data} = await api.get<Film[]>('/favorite');
+    const {data} = await api.get<FilmShort[]>('/favorite');
     return data;
   }
 );

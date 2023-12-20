@@ -84,7 +84,7 @@ describe('Favorite store slice', () => {
         error: null
       };
 
-      const result = favoriteSlice.reducer(undefined, changeFavorite.fulfilled(favoriteFilms[0], '', {
+      const result = favoriteSlice.reducer(undefined, changeFavorite.fulfilled(films[1], '', {
         filmId: '',
         status: 0
       }));

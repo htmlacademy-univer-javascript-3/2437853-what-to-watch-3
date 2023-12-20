@@ -22,7 +22,7 @@ describe('Favorite store selectors', () => {
   it('should return favorite films from state', () => {
     const {favoriteFilms: films} = state[Slices.Favorite];
     const result = selectFavoriteFilms(state);
-    expect(result.filter((f) => f.isFavorite).length).toBe(films.length);
+    expect(result.length).toBe(films.length);
   });
 
   it('should return favorite count from state', () => {
