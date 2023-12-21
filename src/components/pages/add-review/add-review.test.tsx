@@ -5,7 +5,7 @@ import {Slices} from '../../../types/slices';
 import AddReview from './add-review';
 import {film, similarFilms} from '../../../mocks/films';
 import {comments} from '../../../mocks/comments';
-import {AuthStatus} from "../../../types/auth-status";
+import {AuthStatus} from '../../../types/auth-status';
 
 describe('Component: AddReview page', () => {
   it('should render correctly', () => {
