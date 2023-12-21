@@ -26,6 +26,7 @@ function GenreList(props: GenreListProps) {
             style={{border: 0, background: 'transparent'}}
             className="catalog__genres-link"
             onClick={() => dispatch(changeGenre(genre))}
+            data-testid={`button-${genre}`}
           >
             {genre}
           </button>

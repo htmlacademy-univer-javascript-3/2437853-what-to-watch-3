@@ -3,7 +3,6 @@ import FilmList from '../../common/film-list/film-list';
 import GenreList from '../../common/genre-list/genre-list';
 import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
-import Spinner from '../../common/spinner/spinner';
 import UserBlock from '../../common/user-block/user-block';
 import Film from '../../../types/film';
 import {selectFilms, selectGenre, selectPromo} from '../../../store/general/general-store.selectors';
@@ -33,7 +32,6 @@ function Main() {
 
   return (
     <React.Fragment>
-      <Spinner/>
       <section className="film-card">
         <div className="film-card__bg">
           <img src={promo?.backgroundImage} alt={promo?.name}/>

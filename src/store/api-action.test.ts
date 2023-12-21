@@ -13,10 +13,12 @@ import {
   fetchFilms,
   fetchPromo,
   fetchSimilar,
-  loginGet
+  loginGet, loginPost, logout
 } from './api-action';
 import {favoriteFilms, film, films, similarFilms} from '../mocks/films';
 import {comments} from '../mocks/comments';
+import {authInfo} from '../mocks/user';
+import * as tokenStorage from '../api/token';
 
 describe('Async actions', () => {
   const axios = createApi();
@@ -281,6 +283,117 @@ describe('Async actions', () => {
         changeFavorite.pending.type,
         changeFavorite.rejected.type,
       ]);
+    });
+  });
+
+  describe('loginGet', () => {
+    it('should dispatch "loginGet.pending", "loginGet.fulfilled", when server response 200', async () => {
+      mockAxiosAdapter.onGet('/login').reply(200, authInfo);
+
+      await store.dispatch(loginGet());
+
+      const emittedActions = store.getActions();
+      const extractedActionsTypes = extractActionsTypes(emittedActions);
+      const loginGetActionFulfilled = emittedActions.at(1) as ReturnType<typeof changeFavorite.fulfilled>;
+
+      expect(extractedActionsTypes).toEqual([
+        loginGet.pending.type,
+        loginGet.fulfilled.type,
+      ]);
+
+      expect(loginGetActionFulfilled.payload)
+        .toEqual(authInfo);
+    });
+
+    it('should dispatch "loginGet.pending", "loginGet.rejected" when server response 400', async () => {
+      mockAxiosAdapter.onGet('/login').reply(400, null);
+
+      await store.dispatch(loginGet());
+      const actions = extractActionsTypes(store.getActions());
+
+      expect(actions).toEqual([
+        loginGet.pending.type,
+        loginGet.rejected.type,
+      ]);
+    });
+  });
+
+  describe('loginPost', () => {
+    it('should dispatch "loginPost.pending", "loginPost.fulfilled", when server response 200', async () => {
+      mockAxiosAdapter.onPost('/login').reply(200, authInfo);
+
+      await store.dispatch(loginPost({email:'a', password:'a0'}));
+
+      const emittedActions = store.getActions();
+      const extractedActionsTypes = extractActionsTypes(emittedActions);
+      const loginGetActionFulfilled = emittedActions.at(1) as ReturnType<typeof changeFavorite.fulfilled>;
+
+      expect(extractedActionsTypes).toEqual([
+        loginPost.pending.type,
+        loginPost.fulfilled.type,
+      ]);
+
+      expect(loginGetActionFulfilled.payload)
+        .toEqual(authInfo);
+    });
+
+    it('should dispatch "loginPost.pending", "loginPost.rejected" when server response 400', async () => {
+      mockAxiosAdapter.onPost('/login').reply(400, null);
+
+      await store.dispatch(loginPost({email:'a', password:'a0'}));
+      const actions = extractActionsTypes(store.getActions());
+
+      expect(actions).toEqual([
+        loginPost.pending.type,
+        loginPost.rejected.type,
+      ]);
+    });
+
+    it('should call "setToken" once with the received token', async () => {
+      mockAxiosAdapter.onPost('/login').reply(200, authInfo);
+      const mockSaveToken = vi.spyOn(tokenStorage, 'setToken');
+
+      await store.dispatch(loginPost({email:'a', password:'a0'}));
+
+      expect(mockSaveToken).toBeCalledTimes(1);
+      expect(mockSaveToken).toBeCalledWith(authInfo.token);
+    });
+  });
+
+  describe('logout', () => {
+    it('should dispatch "logout.pending", "logout.fulfilled", when server response 200', async () => {
+      mockAxiosAdapter.onDelete('/logout').reply(200);
+
+      await store.dispatch(logout());
+
+      const emittedActions = store.getActions();
+      const extractedActionsTypes = extractActionsTypes(emittedActions);
+
+      expect(extractedActionsTypes).toEqual([
+        logout.pending.type,
+        logout.fulfilled.type,
+      ]);
+    });
+
+    it('should dispatch "logout.pending", "logout.rejected" when server response 400', async () => {
+      mockAxiosAdapter.onDelete('/logout').reply(400, null);
+
+      await store.dispatch(logout());
+      const actions = extractActionsTypes(store.getActions());
+
+      expect(actions).toEqual([
+        logout.pending.type,
+        logout.rejected.type,
+      ]);
+    });
+
+    it('should call "removeToken" once with the received token', async () => {
+      mockAxiosAdapter.onDelete('/logout').reply(200);
+      const mockSaveToken = vi.spyOn(tokenStorage, 'removeToken');
+
+      await store.dispatch(logout());
+
+      expect(mockSaveToken).toBeCalledTimes(1);
     });
   });
 });

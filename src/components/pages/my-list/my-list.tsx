@@ -12,7 +12,7 @@ function MyList() {
   const favoriteCount = useAppSelector(selectFavoriteCount);
   useEffect(() => {
     dispatch(fetchFavorite());
-  });
+  },[dispatch]);
 
   return (
     <div className="user-page">

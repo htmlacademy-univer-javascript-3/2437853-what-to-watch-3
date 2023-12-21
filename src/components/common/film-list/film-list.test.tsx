@@ -13,7 +13,7 @@ vi.mock('../film-card/film-card', () => ({
 }));
 
 describe('Component: Film list', () => {
-  it('should render correct', () => {
+  it('should render correctly', () => {
     const filmListId = 'filmList';
     const filmCardId = 'filmCard';
 

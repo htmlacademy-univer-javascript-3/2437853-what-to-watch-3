@@ -48,6 +48,7 @@ function SignInForm() {
   return (
     <div className="sign-in user-page__content">
       <form
+        data-testid="form"
         className="sign-in__form"
         onSubmit={(e) => {
           e.preventDefault();
@@ -69,6 +70,7 @@ function SignInForm() {
               placeholder="Email address" name="email" id="user-email"
               onChange={handleFieldChange}
               value={formData.email}
+              data-testid="email"
             />
             <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
           </div>
@@ -78,6 +80,7 @@ function SignInForm() {
               placeholder="Password" name="password" id="user-password"
               onChange={handleFieldChange}
               value={formData.password}
+              data-testid="password"
             />
             <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
           </div>
