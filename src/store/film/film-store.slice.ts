@@ -9,7 +9,6 @@ const initialState: FilmStore = {
   similarFilms: [],
   comments: [],
   dataLoading: false,
-  error: null
 };
 
 export const filmSlice = createSlice({
@@ -20,15 +19,12 @@ export const filmSlice = createSlice({
     builder
       .addCase(fetchFilm.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchSimilar.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchComments.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchFilm.fulfilled, (state, action) => {
         state.dataLoading = false;
@@ -42,20 +38,17 @@ export const filmSlice = createSlice({
         state.dataLoading = false;
         state.comments = action.payload;
       })
-      .addCase(fetchFilm.rejected, (state, action) => {
+      .addCase(fetchFilm.rejected, (state) => {
         state.dataLoading = false;
         state.film = null;
-        state.error = action.error;
       })
-      .addCase(fetchSimilar.rejected, (state, action) => {
+      .addCase(fetchSimilar.rejected, (state) => {
         state.dataLoading = false;
         state.similarFilms = [];
-        state.error = action.error;
       })
-      .addCase(fetchComments.rejected, (state, action) => {
+      .addCase(fetchComments.rejected, (state) => {
         state.dataLoading = false;
         state.comments = [];
-        state.error = action.error;
       })
       .addCase(changeFavorite.fulfilled, (state, action) => {
         state.film = action.payload;

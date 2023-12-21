@@ -25,7 +25,6 @@ describe('Component: GenreList', () => {
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,
-        error: null
       }
     }));
 
@@ -43,7 +42,6 @@ describe('Component: GenreList', () => {
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,
-        error: null
       }
     }));
 

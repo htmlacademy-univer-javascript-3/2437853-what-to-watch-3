@@ -10,7 +10,6 @@ const initialState: GeneralState = {
   promo: null,
   genre: ALL_GENRES,
   dataLoading: false,
-  error: null
 };
 
 export const generalSlice = createSlice({
@@ -30,11 +29,9 @@ export const generalSlice = createSlice({
     builder
       .addCase(fetchFilms.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchPromo.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchFilms.fulfilled, (state, action) => {
         state.dataLoading = false;
@@ -44,15 +41,13 @@ export const generalSlice = createSlice({
         state.dataLoading = false;
         state.promo = action.payload;
       })
-      .addCase(fetchFilms.rejected, (state, action) => {
+      .addCase(fetchFilms.rejected, (state) => {
         state.dataLoading = false;
         state.films = [];
-        state.error = action.error;
       })
-      .addCase(fetchPromo.rejected, (state, action) => {
+      .addCase(fetchPromo.rejected, (state) => {
         state.dataLoading = false;
         state.promo = null;
-        state.error = action.error;
       });
   }
 });

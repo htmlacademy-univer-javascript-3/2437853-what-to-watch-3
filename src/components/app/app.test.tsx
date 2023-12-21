@@ -43,7 +43,6 @@ describe('Application Routing', () => {
       [Slices.User]: {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
-        error: null
       }
     }));
     mockHistory.push('/mylist');
@@ -62,7 +61,6 @@ describe('Application Routing', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
     mockHistory.push(`/films/${film.id}`);
@@ -82,7 +80,10 @@ describe('Application Routing', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
+      },
+      [Slices.User]: {
+        user: null,
+        authorizationStatus: AuthStatus.Authorized,
       }
     }));
     mockHistory.push(`/films/${film.id}/review`);
@@ -100,7 +101,6 @@ describe('Application Routing', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
     mockHistory.push(`/player/${film.id}`);

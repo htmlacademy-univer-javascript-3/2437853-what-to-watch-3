@@ -1,13 +1,12 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {State} from '../types/state';
-import {AxiosError, AxiosInstance} from 'axios';
+import {AxiosInstance} from 'axios';
 import Film, {FilmShort} from '../types/film';
 import {AppDispatch} from '../hooks/use-app-selector';
 import {AuthInfo, UserInfo} from '../types/user-info';
 import {removeToken, setToken} from '../api/token';
 import Comment from '../types/comment';
 import Promo from '../types/promo';
-import {ErrorDetailsMessage} from '../types/error-details-message';
 
 
 export const fetchFilms = createAsyncThunk<FilmShort[], undefined, {
@@ -99,17 +98,11 @@ export const loginGet = createAsyncThunk<UserInfo, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
-  rejectValue: ErrorDetailsMessage;
 }>(
   'loginGet',
-  async (_, {extra: api, rejectWithValue}) => {
-    try {
-      const {data} = await api.get<AuthInfo>('/login');
-      return data;
-    } catch (e) {
-      const err = e as AxiosError<ErrorDetailsMessage>;
-      throw rejectWithValue(err.response!.data);
-    }
+  async (_, {extra: api}) => {
+    const {data} = await api.get<AuthInfo>('/login');
+    return data;
   }
 );
 
@@ -117,18 +110,12 @@ export const loginPost = createAsyncThunk<UserInfo, { email: string; password: s
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
-  rejectValue: ErrorDetailsMessage;
 }>(
   'loginPost',
-  async (loginInfo, {extra: api, rejectWithValue}) => {
-    try {
-      const {data} = await api.post<AuthInfo>('/login', loginInfo);
-      setToken(data.token);
-      return data;
-    } catch (e) {
-      const err = e as AxiosError<ErrorDetailsMessage>;
-      throw rejectWithValue(err.response!.data);
-    }
+  async (loginInfo, {extra: api,}) => {
+    const {data} = await api.post<AuthInfo>('/login', loginInfo);
+    setToken(data.token);
+    return data;
   }
 );
 

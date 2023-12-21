@@ -23,7 +23,6 @@ describe('Component: AddReview page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }}));
 
     render(withStoreComponent);
@@ -38,12 +37,10 @@ describe('Component: AddReview page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       },
       [Slices.User]: {
         user: null,
         authorizationStatus: AuthStatus.Authorized,
-        error: null
       }
     }));
 

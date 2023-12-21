@@ -14,7 +14,6 @@ describe('Component: Main page', () => {
         genre: ALL_GENRES,
         promo: film,
         dataLoading: false,
-        error: null
       }
     }));
 

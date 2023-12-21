@@ -22,7 +22,6 @@ describe('Component: Film page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 

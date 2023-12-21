@@ -14,7 +14,6 @@ describe('Component: SignIn page', () => {
       [Slices.User]: {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
-        error: null
       }
     }));
 

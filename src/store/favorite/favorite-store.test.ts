@@ -10,7 +10,6 @@ describe('Favorite store slice', () => {
       favoriteCount: 0,
       favoriteFilms: [],
       dataLoading: false,
-      error: null
     };
 
     const result = favoriteSlice.reducer(expectedState, emptyAction);
@@ -24,7 +23,6 @@ describe('Favorite store slice', () => {
       favoriteCount: 0,
       favoriteFilms: [],
       dataLoading: false,
-      error: null
     };
 
     const result = favoriteSlice.reducer(undefined, emptyAction);
@@ -37,7 +35,6 @@ describe('Favorite store slice', () => {
       favoriteCount: 0,
       favoriteFilms: [],
       dataLoading: true,
-      error: null
     };
 
     const result = favoriteSlice.reducer(undefined, fetchFavorite.pending);
@@ -50,7 +47,6 @@ describe('Favorite store slice', () => {
       favoriteCount: favoriteFilms.length,
       favoriteFilms: favoriteFilms,
       dataLoading: false,
-      error: null
     };
 
     const result = favoriteSlice.reducer(undefined, fetchFavorite.fulfilled(favoriteFilms, '', undefined));
@@ -59,18 +55,13 @@ describe('Favorite store slice', () => {
   });
 
   it('should return correct state with fetchFavorite.rejected', () => {
-    const error = {
-      name: 'errorName',
-      message: 'error'
-    };
     const expectedState = {
       favoriteCount: 0,
       favoriteFilms: [],
       dataLoading: false,
-      error: error
     };
 
-    const result = favoriteSlice.reducer(undefined, fetchFavorite.rejected(error, '', undefined));
+    const result = favoriteSlice.reducer(undefined, fetchFavorite.rejected);
 
     expect(result).toEqual(expectedState);
   });
@@ -81,7 +72,6 @@ describe('Favorite store slice', () => {
         favoriteCount: 1,
         favoriteFilms: [],
         dataLoading: false,
-        error: null
       };
 
       const result = favoriteSlice.reducer(undefined, changeFavorite.fulfilled(films[1], '', {
@@ -97,13 +87,11 @@ describe('Favorite store slice', () => {
         favoriteCount: 1,
         favoriteFilms: [],
         dataLoading: false,
-        error: null
       };
       const expectedState = {
         favoriteCount: 0,
         favoriteFilms: [],
         dataLoading: false,
-        error: null
       };
 
       const result = favoriteSlice.reducer(initialState, changeFavorite.fulfilled(films.filter((f) => !f.isFavorite)[0], '', {

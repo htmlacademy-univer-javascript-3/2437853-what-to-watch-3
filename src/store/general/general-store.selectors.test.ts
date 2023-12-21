@@ -1,13 +1,7 @@
 import {beforeEach, describe, expect} from 'vitest';
 import {Slices} from '../../types/slices';
 import {film, filmsShort} from '../../mocks/films';
-import {
-  selectFilms,
-  selectGenre,
-  selectLoadingError,
-  selectLoadingStatus,
-  selectPromo
-} from './general-store.selectors';
+import {selectFilms, selectGenre, selectLoadingStatus, selectPromo} from './general-store.selectors';
 import {ALL_GENRES} from '../../const';
 import {State} from '../../types/state';
 
@@ -18,7 +12,6 @@ describe('General store selectors', () => {
       promo: film,
       genre: film.genre,
       dataLoading: false,
-      error: null
     }
   };
 
@@ -50,21 +43,18 @@ describe('Store selectors', () => {
           favoriteCount: 0,
           favoriteFilms: [],
           dataLoading: false,
-          error: null
         },
         [Slices.Film]: {
           film: null,
           similarFilms: [],
           comments: [],
           dataLoading: false,
-          error: null
         },
         [Slices.General]: {
           films: [],
           promo: null,
           genre: ALL_GENRES,
           dataLoading: false,
-          error: null
         }
       };
     });
@@ -93,66 +83,6 @@ describe('Store selectors', () => {
       state[Slices.Favorite].dataLoading = true;
       const expected = true;
       const result = selectLoadingStatus(state);
-      expect(result).toBe(expected);
-    });
-  });
-
-  describe('error', () => {
-    const error = {
-      name: 'errorName',
-      message: 'error'
-    };
-
-    let state: Omit<State, Slices.User>;
-    beforeEach(() => {
-      state = {
-        [Slices.Favorite]: {
-          favoriteCount: 0,
-          favoriteFilms: [],
-          dataLoading: false,
-          error: null
-        },
-        [Slices.Film]: {
-          film: null,
-          similarFilms: [],
-          comments: [],
-          dataLoading: false,
-          error: null
-        },
-        [Slices.General]: {
-          films: [],
-          promo: null,
-          genre: ALL_GENRES,
-          dataLoading: false,
-          error: null
-        }
-      };
-    });
-
-    it('should return error null', () => {
-      const expected = null;
-      const result = selectLoadingError(state);
-      expect(result).toBe(expected);
-    });
-
-    it('should return error from General', () => {
-      state[Slices.General].error = error;
-      const expected = error;
-      const result = selectLoadingError(state);
-      expect(result).toBe(expected);
-    });
-
-    it('should return error from Film', () => {
-      state[Slices.Film].error = error;
-      const expected = error;
-      const result = selectLoadingError(state);
-      expect(result).toBe(expected);
-    });
-
-    it('should return error from Favorite', () => {
-      state[Slices.Favorite].error = error;
-      const expected = error;
-      const result = selectLoadingError(state);
       expect(result).toBe(expected);
     });
   });

@@ -22,7 +22,6 @@ describe('Component: FilmReview tab', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 

@@ -23,7 +23,6 @@ describe('Component: UserBlock', () => {
       [Slices.User]: {
         user: user,
         authorizationStatus: AuthStatus.Authorized,
-        error: null
       }
     }));
 
@@ -37,7 +36,6 @@ describe('Component: UserBlock', () => {
       [Slices.User]: {
         user: user,
         authorizationStatus: AuthStatus.Authorized,
-        error: null
       }
     }));
 

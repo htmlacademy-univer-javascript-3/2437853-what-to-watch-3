@@ -21,7 +21,6 @@ describe('Component: Spinner', () => {
         genre: ALL_GENRES,
         promo: null,
         dataLoading: true,
-        error: null
       }
     }));
 

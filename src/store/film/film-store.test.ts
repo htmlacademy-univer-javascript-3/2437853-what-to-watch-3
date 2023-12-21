@@ -12,7 +12,6 @@ describe('Film store slice', () => {
       similarFilms: [],
       comments: [],
       dataLoading: false,
-      error: null
     };
 
     const result = filmSlice.reducer(expectedState, emptyAction);
@@ -27,7 +26,6 @@ describe('Film store slice', () => {
       similarFilms: [],
       comments: [],
       dataLoading: false,
-      error: null
     };
 
     const result = filmSlice.reducer(undefined, emptyAction);
@@ -42,7 +40,6 @@ describe('Film store slice', () => {
         similarFilms: [],
         comments: [],
         dataLoading: true,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchFilm.pending);
@@ -56,7 +53,6 @@ describe('Film store slice', () => {
         similarFilms: [],
         comments: [],
         dataLoading: false,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchFilm.fulfilled(film, '', ''));
@@ -65,19 +61,14 @@ describe('Film store slice', () => {
     });
 
     it('should return correct state with rejected', () => {
-      const error = {
-        name: 'errorName',
-        message: 'error'
-      };
       const expectedState = {
         film: null,
         similarFilms: [],
         comments: [],
         dataLoading: false,
-        error: error
       };
 
-      const result = filmSlice.reducer(undefined, fetchFilm.rejected(error, '', '0'));
+      const result = filmSlice.reducer(undefined, fetchFilm.rejected);
 
       expect(result).toEqual(expectedState);
     });
@@ -90,7 +81,6 @@ describe('Film store slice', () => {
         similarFilms: [],
         comments: [],
         dataLoading: true,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchSimilar.pending);
@@ -104,7 +94,6 @@ describe('Film store slice', () => {
         similarFilms: similarFilms,
         comments: [],
         dataLoading: false,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchSimilar.fulfilled(similarFilms, '', '0'));
@@ -113,19 +102,14 @@ describe('Film store slice', () => {
     });
 
     it('should return correct state with rejected', () => {
-      const error = {
-        name: 'errorName',
-        message: 'error'
-      };
       const expectedState = {
         film: null,
         similarFilms: [],
         comments: [],
         dataLoading: false,
-        error: error
       };
 
-      const result = filmSlice.reducer(undefined, fetchSimilar.rejected(error, '', '0'));
+      const result = filmSlice.reducer(undefined, fetchSimilar.rejected);
 
       expect(result).toEqual(expectedState);
     });
@@ -138,7 +122,6 @@ describe('Film store slice', () => {
         similarFilms: [],
         comments: [],
         dataLoading: true,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchComments.pending);
@@ -152,7 +135,6 @@ describe('Film store slice', () => {
         similarFilms: [],
         comments: comments,
         dataLoading: false,
-        error: null
       };
 
       const result = filmSlice.reducer(undefined, fetchComments.fulfilled(comments, '', '0'));
@@ -161,19 +143,14 @@ describe('Film store slice', () => {
     });
 
     it('should return correct state with rejected', () => {
-      const error = {
-        name: 'errorName',
-        message: 'error'
-      };
       const expectedState = {
         film: null,
         similarFilms: [],
         comments: [],
         dataLoading: false,
-        error: error
       };
 
-      const result = filmSlice.reducer(undefined, fetchComments.rejected(error, '', '0'));
+      const result = filmSlice.reducer(undefined, fetchComments.rejected);
 
       expect(result).toEqual(expectedState);
     });
@@ -185,7 +162,6 @@ describe('Film store slice', () => {
       similarFilms: [],
       comments: [],
       dataLoading: false,
-      error: null
     };
 
     const result = filmSlice.reducer(undefined, changeFavorite.fulfilled(film, '', {filmId: '0', status: 0}));
