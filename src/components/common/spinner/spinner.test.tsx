@@ -11,7 +11,7 @@ describe('Component: Spinner', () => {
 
     render(withStoreComponent);
 
-    expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
   });
 
   it('should render load correctly', () => {
@@ -27,6 +27,6 @@ describe('Component: Spinner', () => {
 
     render(withStoreComponent);
 
-    expect(screen.queryByText(/loading/i)).toBeInTheDocument();
+    expect(screen.getByTestId('spinner')).toBeInTheDocument();
   });
 });

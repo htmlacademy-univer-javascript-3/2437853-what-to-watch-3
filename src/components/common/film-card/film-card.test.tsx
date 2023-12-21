@@ -3,7 +3,7 @@ import {createMemoryHistory, MemoryHistory} from 'history';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import FilmCard from './film-card';
-import {film} from '../../../mocks/films';
+import {film, filmShort} from '../../../mocks/films';
 import {withHistory} from '../../../mocks/components';
 
 describe('Component: FilmCard', () => {
@@ -14,7 +14,7 @@ describe('Component: FilmCard', () => {
   });
 
   it('should render correctly', () => {
-    const withHistoryComponent = withHistory(<FilmCard film={film}/>, mockHistory);
+    const withHistoryComponent = withHistory(<FilmCard film={filmShort}/>, mockHistory);
 
     render(withHistoryComponent);
 
@@ -22,7 +22,7 @@ describe('Component: FilmCard', () => {
   });
 
   it('should handle click correctly', async () => {
-    const withHistoryComponent = withHistory(<FilmCard film={film}/>, mockHistory);
+    const withHistoryComponent = withHistory(<FilmCard film={filmShort}/>, mockHistory);
 
     render(withHistoryComponent);
 

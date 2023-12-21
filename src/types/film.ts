@@ -16,4 +16,12 @@ type Film = {
   isFavorite: boolean;
 }
 
+export type FilmShort = {
+  id: string;
+  genre: string;
+  name: string;
+  previewImage: string;
+  previewVideoLink: string;
+}
+
 export default Film;

@@ -1,5 +1,5 @@
 import {store} from '../store';
-import Film from './film';
+import Film, {FilmShort} from './film';
 import Comment from './comment';
 import {SerializedError} from '@reduxjs/toolkit';
 import Promo from './promo';
@@ -9,14 +9,14 @@ import {ErrorDetailsMessage} from './error-details-message';
 
 export type FilmStore = {
   film: Film | null;
-  similarFilms: Film[];
+  similarFilms: FilmShort[];
   comments: Comment[];
   dataLoading: boolean;
   error: SerializedError | null;
 };
 
 export type GeneralState = {
-  films: Film[];
+  films: FilmShort[];
   promo: Promo | null;
   genre: string;
   dataLoading: boolean;
@@ -32,7 +32,7 @@ export type UserState = {
 
 export type FavoriteState = {
   favoriteCount: number;
-  favoriteFilms: Film[];
+  favoriteFilms: FilmShort[];
   dataLoading: boolean;
   error: SerializedError | null;
 };

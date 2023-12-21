@@ -4,14 +4,14 @@ import GenreList from '../../common/genre-list/genre-list';
 import {useAppDispatch, useAppSelector} from '../../../hooks/use-app-selector';
 import ShowMoreButton from '../../common/show-more-button/show-more-button';
 import UserBlock from '../../common/user-block/user-block';
-import Film from '../../../types/film';
+import {FilmShort} from '../../../types/film';
 import {selectFilms, selectGenre, selectPromo} from '../../../store/general/general-store.selectors';
 import {ALL_GENRES} from '../../../const';
 import PlayButton from '../../common/buttons/play-button/play-button';
 import MyListButton from '../../common/buttons/my-list-button/my-list-button';
 import {changePromoFavorite} from '../../../store/general/general-store.slice';
 
-function filterFilms(films: Film[], genre: string) {
+function filterFilms(films: FilmShort[], genre: string) {
   return genre === ALL_GENRES ? films : films.filter((film) => film.genre === genre);
 }
 

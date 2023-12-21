@@ -1,7 +1,7 @@
 import FilmList from './film-list';
 import {render, screen} from '@testing-library/react';
 import {expect} from 'vitest';
-import {films} from '../../../mocks/films';
+import {filmsShort} from '../../../mocks/films';
 import Film from '../../../types/film';
 
 const mockInput = vi.fn();
@@ -19,7 +19,7 @@ describe('Component: Film list', () => {
 
     render(
       <FilmList
-        films={films}
+        films={filmsShort}
         filmsCount={8}
       />
     );
