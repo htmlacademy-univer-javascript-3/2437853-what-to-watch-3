@@ -10,7 +10,6 @@ describe('General store slice', () => {
     const expectedState = {
       authorizationStatus: AuthStatus.Unknown,
       user: null,
-      error: null
     };
 
     const result = userSlice.reducer(expectedState, emptyAction);
@@ -23,7 +22,6 @@ describe('General store slice', () => {
     const expectedState = {
       authorizationStatus: AuthStatus.Unknown,
       user: null,
-      error: null
     };
 
     const result = userSlice.reducer(undefined, emptyAction);
@@ -32,11 +30,10 @@ describe('General store slice', () => {
   });
 
   describe('loginGet', () => {
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
-        error: null
       };
 
       const result = userSlice.reducer(undefined, loginGet.fulfilled(user, '', undefined));
@@ -44,11 +41,10 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Unauthorized,
         user: null,
-        error: authError
       };
 
       const result = userSlice.reducer(undefined, loginGet.rejected(null, '', undefined, authError));
@@ -58,11 +54,10 @@ describe('General store slice', () => {
   });
 
   describe('loginPost', () => {
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
-        error: null
       };
 
       const result = userSlice.reducer(undefined, loginPost.fulfilled(user, '', {email:'a.a', password:'a0'}));
@@ -70,11 +65,10 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Unauthorized,
         user: null,
-        error: authError
       };
 
       const result = userSlice.reducer(undefined, loginPost.rejected(null, '', {email:'a.a', password:'a0'}, authError));
@@ -83,11 +77,10 @@ describe('General store slice', () => {
     });
   });
 
-  it('should return  correct state with logout.fulfilled', () => {
+  it('should return correct state with logout.fulfilled', () => {
     const expectedState = {
       authorizationStatus: AuthStatus.Unauthorized,
       user: null,
-      error: null
     };
     const initialState = {...expectedState, user: user, authorizationStatus: AuthStatus.Authorized};
 

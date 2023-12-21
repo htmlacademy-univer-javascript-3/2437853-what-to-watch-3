@@ -8,7 +8,6 @@ import {UserState} from '../../types/state';
 const initialState: UserState = {
   authorizationStatus: AuthStatus.Unknown,
   user: null,
-  error: null
 };
 
 export const userSlice = createSlice({
@@ -20,22 +19,18 @@ export const userSlice = createSlice({
       .addCase(loginGet.fulfilled, (state, action) => {
         state.authorizationStatus = AuthStatus.Authorized;
         state.user = action.payload;
-        state.error = null;
       })
-      .addCase(loginGet.rejected, (state, action) => {
+      .addCase(loginGet.rejected, (state) => {
         state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
-        state.error = action.payload ?? null;
       })
       .addCase(loginPost.fulfilled, (state, action) => {
         state.authorizationStatus = AuthStatus.Authorized;
         state.user = action.payload;
-        state.error = null;
       })
-      .addCase(loginPost.rejected, (state, action) => {
+      .addCase(loginPost.rejected, (state) => {
         state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
-        state.error = action.payload ?? null;
       })
       .addCase(logout.fulfilled, (state) => {
         state.authorizationStatus = AuthStatus.Unauthorized;

@@ -23,7 +23,6 @@ describe('Component: MyList page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 
@@ -42,7 +41,6 @@ describe('Component: MyList page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 

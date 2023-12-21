@@ -7,15 +7,12 @@ import userEvent from '@testing-library/user-event';
 
 describe('Component: Not Found page', () => {
   it('should render correct', () => {
-    const fields = ['404 Not Found', 'На главную'];
-
     render(withHistory(
       <NotFound/>
     ));
 
-    for (const field of fields) {
-      expect(screen.getByText(field)).toBeInTheDocument();
-    }
+    expect(screen.getByText(/404/i)).toBeInTheDocument();
+    expect(screen.getByRole('link')).toBeInTheDocument();
   });
 
   it('should redirect correct', async () => {

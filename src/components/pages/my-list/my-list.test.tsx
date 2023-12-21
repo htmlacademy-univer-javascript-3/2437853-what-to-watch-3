@@ -12,7 +12,6 @@ describe('Component: MyList page', () => {
         favoriteFilms: favoriteFilms,
         favoriteCount: favoriteFilms.length,
         dataLoading: false,
-        error: null
       }
     }));
 

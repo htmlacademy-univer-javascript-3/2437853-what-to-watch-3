@@ -9,7 +9,6 @@ describe('Favorite store selectors', () => {
       favoriteCount: favoriteFilms.length,
       favoriteFilms: favoriteFilms,
       dataLoading: false,
-      error: null
     }
   };
 

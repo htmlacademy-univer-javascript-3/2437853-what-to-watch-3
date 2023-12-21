@@ -12,7 +12,6 @@ describe('General store slice', () => {
       promo: null,
       genre: ALL_GENRES,
       dataLoading: false,
-      error: null
     };
 
     const result = generalSlice.reducer(expectedState, emptyAction);
@@ -27,7 +26,6 @@ describe('General store slice', () => {
       promo: null,
       genre: ALL_GENRES,
       dataLoading: false,
-      error: null
     };
 
     const result = generalSlice.reducer(undefined, emptyAction);
@@ -36,13 +34,12 @@ describe('General store slice', () => {
   });
 
   describe('fetchFilms', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         films: [],
         promo: null,
         genre: ALL_GENRES,
         dataLoading: true,
-        error: null
       };
 
       const result = generalSlice.reducer(undefined, fetchFilms.pending);
@@ -50,13 +47,12 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         films: filmsShort,
         promo: null,
         genre: ALL_GENRES,
         dataLoading: false,
-        error: null
       };
 
       const result = generalSlice.reducer(undefined, fetchFilms.fulfilled(filmsShort, '', undefined));
@@ -64,33 +60,27 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
-      const error = {
-        name: 'errorName',
-        message: 'error'
-      };
+    it('should return correct state with rejected', () => {
       const expectedState = {
         films: [],
         promo: null,
         genre: ALL_GENRES,
         dataLoading: false,
-        error: error
       };
 
-      const result = generalSlice.reducer(undefined, fetchFilms.rejected(error, '', undefined));
+      const result = generalSlice.reducer(undefined, fetchFilms.rejected);
 
       expect(result).toEqual(expectedState);
     });
   });
 
   describe('fetchPromo', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         films: [],
         promo: null,
         genre: ALL_GENRES,
         dataLoading: true,
-        error: null
       };
 
       const result = generalSlice.reducer(undefined, fetchPromo.pending);
@@ -98,13 +88,12 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         films: [],
         promo: film,
         genre: ALL_GENRES,
         dataLoading: false,
-        error: null
       };
 
       const result = generalSlice.reducer(undefined, fetchPromo.fulfilled(film, '', undefined));
@@ -112,20 +101,15 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
-      const error = {
-        name: 'errorName',
-        message: 'error'
-      };
+    it('should return correct state with rejected', () => {
       const expectedState = {
         films: [],
         promo: null,
         genre: ALL_GENRES,
         dataLoading: false,
-        error: error
       };
 
-      const result = generalSlice.reducer(undefined, fetchPromo.rejected(error, '', undefined));
+      const result = generalSlice.reducer(undefined, fetchPromo.rejected);
 
       expect(result).toEqual(expectedState);
     });
@@ -138,7 +122,6 @@ describe('General store slice', () => {
       promo: null,
       genre: genre,
       dataLoading: false,
-      error: null
     };
 
     const result = generalSlice.reducer(undefined, changeGenre(genre));
@@ -162,7 +145,6 @@ describe('General store slice', () => {
       promo: promo,
       genre: ALL_GENRES,
       dataLoading: false,
-      error: null
     };
     const expectedState = {...initialState, promo: {...promo, isFavorite: true}};
 
@@ -186,7 +168,6 @@ describe('General store slice', () => {
       promo: promo,
       genre: ALL_GENRES,
       dataLoading: false,
-      error: null
     };
     const expectedState = {...initialState, promo: {...promo, isFavorite: false}};
 

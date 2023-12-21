@@ -25,7 +25,6 @@ describe('Component: ReviewForm', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 
@@ -44,7 +43,6 @@ describe('Component: ReviewForm', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 
@@ -66,7 +64,6 @@ describe('Component: ReviewForm', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
 
@@ -94,7 +91,6 @@ describe('Component: ReviewForm', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       }
     }));
     mockAxiosAdapter.onPost('/comments/0').reply(200);

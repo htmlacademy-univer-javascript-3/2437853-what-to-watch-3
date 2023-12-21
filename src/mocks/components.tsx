@@ -49,27 +49,23 @@ export const makeFakeStore = (initialState?: Partial<State>): State => ({
   [Slices.User]: {
     authorizationStatus: AuthStatus.Unknown,
     user: null,
-    error: null
   },
   [Slices.Favorite]: {
     favoriteCount: 0,
     favoriteFilms: [],
     dataLoading: false,
-    error: null
   },
   [Slices.Film]: {
     film: null,
     similarFilms: [],
     comments: [],
     dataLoading: false,
-    error: null
   },
   [Slices.General]: {
     films: [],
     promo: null,
     genre: ALL_GENRES,
     dataLoading: false,
-    error: null
   },
   ...initialState ?? {},
 });

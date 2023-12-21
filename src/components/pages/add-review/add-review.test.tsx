@@ -5,7 +5,7 @@ import {Slices} from '../../../types/slices';
 import AddReview from './add-review';
 import {film, similarFilms} from '../../../mocks/films';
 import {comments} from '../../../mocks/comments';
-import {AuthStatus} from "../../../types/auth-status";
+import {AuthStatus} from '../../../types/auth-status';
 
 describe('Component: AddReview page', () => {
   it('should render correctly', () => {
@@ -16,6 +16,20 @@ describe('Component: AddReview page', () => {
     expect(screen.queryByText(/not found/i)).toBeInTheDocument();
   });
 
+  it('should render login correctly', () => {
+    const {withStoreComponent} = withStore(withHistory(<AddReview/>), makeFakeStore({
+      [Slices.Film]: {
+        film: film,
+        similarFilms: similarFilms,
+        comments: comments,
+        dataLoading: false,
+      }}));
+
+    render(withStoreComponent);
+
+    expect(screen.queryByText(/sign in/i)).toBeInTheDocument();
+  });
+
   it('should render page correctly', () => {
     const {withStoreComponent} = withStore(withHistory(<AddReview/>), makeFakeStore({
       [Slices.Film]: {
@@ -23,12 +37,10 @@ describe('Component: AddReview page', () => {
         similarFilms: similarFilms,
         comments: comments,
         dataLoading: false,
-        error: null
       },
-      [Slices.User]:{
+      [Slices.User]: {
         user: null,
         authorizationStatus: AuthStatus.Authorized,
-        error: null
       }
     }));
 

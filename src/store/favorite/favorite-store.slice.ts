@@ -7,7 +7,6 @@ const initialState: FavoriteState = {
   favoriteCount: 0,
   favoriteFilms: [],
   dataLoading: false,
-  error: null
 };
 
 export const favoriteSlice = createSlice({
@@ -18,16 +17,13 @@ export const favoriteSlice = createSlice({
     builder
       .addCase(fetchFavorite.pending, (state) => {
         state.dataLoading = true;
-        state.error = null;
       })
       .addCase(fetchFavorite.fulfilled, (state, action) => {
         state.favoriteFilms = action.payload;
         state.favoriteCount = state.favoriteFilms.length;
         state.dataLoading = false;
-        state.error = null;
       })
-      .addCase(fetchFavorite.rejected, (state, action) => {
-        state.error = action.error;
+      .addCase(fetchFavorite.rejected, (state) => {
         state.dataLoading = false;
         state.favoriteFilms = [];
         state.favoriteCount = 0;

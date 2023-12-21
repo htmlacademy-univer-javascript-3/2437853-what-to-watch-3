@@ -1,15 +1,14 @@
 import {describe, expect} from 'vitest';
 import {Slices} from '../../types/slices';
 import {AuthStatus} from '../../types/auth-status';
-import {authError, user} from '../../mocks/user';
-import {selectAuthError, selectAuthStatus, selectUser} from './user-store.selectors';
+import {user} from '../../mocks/user';
+import {selectAuthStatus, selectUser} from './user-store.selectors';
 
 describe('User store selectors', () => {
   const state = {
     [Slices.User]: {
       authorizationStatus: AuthStatus.Authorized,
       user: user,
-      error: authError
     }
   };
 
@@ -23,11 +22,5 @@ describe('User store selectors', () => {
     const {user: expected} = state[Slices.User];
     const result = selectUser(state);
     expect(result).toBe(expected);
-  });
-
-  it('should return auth error from state', () => {
-    const {error} = state[Slices.User];
-    const result = selectAuthError(state);
-    expect(result).toBe(error);
   });
 });
