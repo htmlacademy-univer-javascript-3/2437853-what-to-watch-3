@@ -36,7 +36,7 @@ describe('Film store slice', () => {
   });
 
   describe('fetchFilm', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         film: null,
         similarFilms: [],
@@ -50,7 +50,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         film: film,
         similarFilms: [],
@@ -64,7 +64,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const error = {
         name: 'errorName',
         message: 'error'
@@ -84,7 +84,7 @@ describe('Film store slice', () => {
   });
 
   describe('fetchSimilar', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         film: null,
         similarFilms: [],
@@ -98,7 +98,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         film: null,
         similarFilms: similarFilms,
@@ -112,7 +112,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const error = {
         name: 'errorName',
         message: 'error'
@@ -132,7 +132,7 @@ describe('Film store slice', () => {
   });
 
   describe('fetchComments', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         film: null,
         similarFilms: [],
@@ -146,7 +146,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         film: null,
         similarFilms: [],
@@ -160,7 +160,7 @@ describe('Film store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const error = {
         name: 'errorName',
         message: 'error'

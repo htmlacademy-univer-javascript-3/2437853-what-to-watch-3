@@ -36,7 +36,7 @@ describe('General store slice', () => {
   });
 
   describe('fetchFilms', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         films: [],
         promo: null,
@@ -50,7 +50,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         films: filmsShort,
         promo: null,
@@ -64,7 +64,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const error = {
         name: 'errorName',
         message: 'error'
@@ -84,7 +84,7 @@ describe('General store slice', () => {
   });
 
   describe('fetchPromo', () => {
-    it('should return  correct state with pending', () => {
+    it('should return correct state with pending', () => {
       const expectedState = {
         films: [],
         promo: null,
@@ -98,7 +98,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         films: [],
         promo: film,
@@ -112,7 +112,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const error = {
         name: 'errorName',
         message: 'error'

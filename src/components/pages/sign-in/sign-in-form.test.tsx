@@ -45,7 +45,7 @@ describe('Component: ReviewForm', () => {
     expect(screen.getByDisplayValue(/dadasdasdasd/i)).toBeInTheDocument();
   });
 
-  it('should not send request', async () => {
+  it('should not send request when email or password are invalid', async () => {
     const withHistoryComponent = withHistory(<SignInForm/>, mockHistory);
     const {withStoreComponent, mockStore} = withStore(withHistoryComponent, makeFakeStore());
 
@@ -66,7 +66,7 @@ describe('Component: ReviewForm', () => {
     expect(extractActionsTypes(mockStore.getActions())).toEqual([]);
   });
 
-  it('should send request', async () => {
+  it('should send request when form data is valid', async () => {
     const withHistoryComponent = withHistory(<SignInForm/>, mockHistory);
     const {withStoreComponent, mockStore, mockAxiosAdapter} = withStore(withHistoryComponent, makeFakeStore());
     mockAxiosAdapter.onPost('/login').reply(200, authInfo);

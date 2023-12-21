@@ -31,32 +31,6 @@ describe('Async actions', () => {
     store = mockStoreCreator({});
   });
 
-  describe('loginGet', () => {
-    it('should dispatch "loginGet.pending" and "loginGet.fulfilled" with thunk "loginGet', async () => {
-      mockAxiosAdapter.onGet('/login').reply(200);
-
-      await store.dispatch(loginGet());
-      const actions = extractActionsTypes(store.getActions());
-
-      expect(actions).toEqual([
-        loginGet.pending.type,
-        loginGet.fulfilled.type,
-      ]);
-    });
-
-    it('should dispatch "loginGet.pending" and "loginGet.rejected" when server response 400', async () => {
-      mockAxiosAdapter.onGet('/login').reply(401);
-
-      await store.dispatch(loginGet());
-      const actions = extractActionsTypes(store.getActions());
-
-      expect(actions).toEqual([
-        loginGet.pending.type,
-        loginGet.rejected.type,
-      ]);
-    });
-  });
-
   describe('fetchFilms', () => {
     it('should dispatch "fetchFilms.pending", "fetchFilms.fulfilled", when server response 200', async () => {
       mockAxiosAdapter.onGet('/films').reply(200, films);

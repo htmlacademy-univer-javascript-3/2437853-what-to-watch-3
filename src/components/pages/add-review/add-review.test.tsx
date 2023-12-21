@@ -16,6 +16,21 @@ describe('Component: AddReview page', () => {
     expect(screen.queryByText(/not found/i)).toBeInTheDocument();
   });
 
+  it('should render login correctly', () => {
+    const {withStoreComponent} = withStore(withHistory(<AddReview/>), makeFakeStore({
+      [Slices.Film]: {
+        film: film,
+        similarFilms: similarFilms,
+        comments: comments,
+        dataLoading: false,
+        error: null
+      }}));
+
+    render(withStoreComponent);
+
+    expect(screen.queryByText(/sign in/i)).toBeInTheDocument();
+  });
+
   it('should render page correctly', () => {
     const {withStoreComponent} = withStore(withHistory(<AddReview/>), makeFakeStore({
       [Slices.Film]: {
@@ -25,7 +40,7 @@ describe('Component: AddReview page', () => {
         dataLoading: false,
         error: null
       },
-      [Slices.User]:{
+      [Slices.User]: {
         user: null,
         authorizationStatus: AuthStatus.Authorized,
         error: null

@@ -32,7 +32,7 @@ describe('General store slice', () => {
   });
 
   describe('loginGet', () => {
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
@@ -44,7 +44,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Unauthorized,
         user: null,
@@ -58,7 +58,7 @@ describe('General store slice', () => {
   });
 
   describe('loginPost', () => {
-    it('should return  correct state with fulfilled', () => {
+    it('should return correct state with fulfilled', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Authorized,
         user: user,
@@ -70,7 +70,7 @@ describe('General store slice', () => {
       expect(result).toEqual(expectedState);
     });
 
-    it('should return  correct state with rejected', () => {
+    it('should return correct state with rejected', () => {
       const expectedState = {
         authorizationStatus: AuthStatus.Unauthorized,
         user: null,
@@ -83,7 +83,7 @@ describe('General store slice', () => {
     });
   });
 
-  it('should return  correct state with logout.fulfilled', () => {
+  it('should return correct state with logout.fulfilled', () => {
     const expectedState = {
       authorizationStatus: AuthStatus.Unauthorized,
       user: null,

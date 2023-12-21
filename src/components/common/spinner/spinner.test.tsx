@@ -14,7 +14,7 @@ describe('Component: Spinner', () => {
     expect(screen.queryByTestId('spinner')).not.toBeInTheDocument();
   });
 
-  it('should render load correctly', () => {
+  it('should render spinner correctly', () => {
     const {withStoreComponent} = withStore(<Spinner/>, makeFakeStore({
       [Slices.General]: {
         films: [],
