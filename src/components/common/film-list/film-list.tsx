@@ -8,11 +8,12 @@ type FilmListProps = {
 
 function FilmList({films, filmsCount}: FilmListProps) {
   return (
-    <div className="catalog__films-list">
+    <div className="catalog__films-list" data-testid="filmList">
       {films.slice(0, filmsCount ? filmsCount : films.length).map((film) => (
         <FilmCard
           key={film.id}
           film={film}
+          data-testid="filmCard"
         />
       ))}
     </div>

@@ -23,7 +23,7 @@ export const userSlice = createSlice({
         state.error = null;
       })
       .addCase(loginGet.rejected, (state, action) => {
-        state.authorizationStatus = AuthStatus.NoAuthorized;
+        state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
         state.error = action.payload ?? null;
       })
@@ -33,12 +33,12 @@ export const userSlice = createSlice({
         state.error = null;
       })
       .addCase(loginPost.rejected, (state, action) => {
-        state.authorizationStatus = AuthStatus.NoAuthorized;
+        state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
         state.error = action.payload ?? null;
       })
       .addCase(logout.fulfilled, (state) => {
-        state.authorizationStatus = AuthStatus.NoAuthorized;
+        state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
       });
   }
