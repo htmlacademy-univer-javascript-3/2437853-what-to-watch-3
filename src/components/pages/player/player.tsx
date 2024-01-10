@@ -101,7 +101,7 @@ function Player() {
                 </>)}
 
           </button>
-          <div className="player__name">Transpotting</div>
+          <div className="player__name">{film.name}</div>
 
           <button type="button" className="player__full-screen" onClick={handleFullscreen}>
             <svg viewBox="0 0 27 27" width="27" height="27">
