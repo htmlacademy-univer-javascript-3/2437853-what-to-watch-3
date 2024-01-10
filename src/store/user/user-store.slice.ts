@@ -20,6 +20,10 @@ export const userSlice = createSlice({
         state.authorizationStatus = AuthStatus.Authorized;
         state.user = action.payload;
       })
+      .addCase(loginGet.pending, (state) => {
+        state.authorizationStatus = AuthStatus.Pending;
+        state.user = null;
+      })
       .addCase(loginGet.rejected, (state) => {
         state.authorizationStatus = AuthStatus.Unauthorized;
         state.user = null;
@@ -27,6 +31,10 @@ export const userSlice = createSlice({
       .addCase(loginPost.fulfilled, (state, action) => {
         state.authorizationStatus = AuthStatus.Authorized;
         state.user = action.payload;
+      })
+      .addCase(loginPost.pending, (state) => {
+        state.authorizationStatus = AuthStatus.Pending;
+        state.user = null;
       })
       .addCase(loginPost.rejected, (state) => {
         state.authorizationStatus = AuthStatus.Unauthorized;

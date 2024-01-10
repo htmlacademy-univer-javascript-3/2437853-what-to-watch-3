@@ -1,5 +1,6 @@
 export enum AuthStatus{
   Unknown,
   Unauthorized,
-  Authorized
+  Authorized,
+  Pending
 }
