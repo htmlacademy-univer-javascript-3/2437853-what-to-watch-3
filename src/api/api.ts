@@ -11,7 +11,7 @@ const StatusCodeMapping: Record<number, boolean> = {
   [StatusCodes.NOT_FOUND]: true
 };
 
-const shouldDisplayError = (response: AxiosResponse) => !!StatusCodeMapping[response.status];
+const shouldDisplayError = (response: AxiosResponse) => StatusCodeMapping[response.status];
 
 export const createApi = (): AxiosInstance => {
   const api = axios.create({
@@ -37,16 +37,9 @@ export const createApi = (): AxiosInstance => {
       if (error.response && shouldDisplayError(error.response)) {
         const detailMessage = (error.response.data);
 
-        toast.warn(detailMessage.message,
-          {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            theme: 'light',
-          });
+        toast.warn(detailMessage.message);
+      } else {
+        toast.warn('Server is not available');
       }
 
       throw error;
